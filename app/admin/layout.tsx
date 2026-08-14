@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Admin — +380',
+  title: 'Admin — EEE80',
   robots: { index: false, follow: false },
 };
 
@@ -12,7 +12,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="border-b border-white/10 bg-ink-900/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/admin" className="flex items-center gap-2">
-            <span className="font-display text-xl font-bold text-bone-50">+380</span>
+            <span className="font-display text-xl font-bold text-bone-50">EEE80</span>
             <span className="rounded-full border border-white/15 px-2.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-widest text-bone-400">
               Admin
             </span>

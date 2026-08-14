@@ -78,6 +78,7 @@ export interface Dictionary {
     offices: { city: string; country: string; hq?: boolean; comingSoon?: boolean }[];
   };
   footer: {
+    credo: string;
     tagline: string;
     rights: string;
     admin: string;

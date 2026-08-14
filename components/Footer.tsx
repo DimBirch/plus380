@@ -9,7 +9,10 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
       <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row">
           <div className="max-w-sm">
-            <span className="font-display text-3xl font-bold text-bone-50">+380</span>
+            <span className="font-display text-3xl font-bold text-bone-50">EEE80</span>
+            <p className="mt-2 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-volt-400">
+              {dict.footer.credo}
+            </p>
             <p className="mt-4 font-body text-sm leading-relaxed text-bone-400">
               {dict.footer.tagline}
             </p>
@@ -70,7 +73,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 font-mono text-[0.7rem] uppercase tracking-widest text-bone-500 sm:flex-row sm:items-center">
-          <span>© {new Date().getFullYear()} +380. {dict.footer.rights}</span>
+          <span>© {new Date().getFullYear()} EEE80. {dict.footer.rights}</span>
           <span>Breda → Worldwide</span>
         </div>
       </div>

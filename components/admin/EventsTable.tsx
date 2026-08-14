@@ -52,7 +52,7 @@ export default function EventsTable({ initialEvents }: { initialEvents: EventRec
                     <Image src={event.cover_image_url} alt="" fill className="object-cover" />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center font-display text-xs font-bold text-bone-600">
-                      +380
+                      EEE80
                     </div>
                   )}
                 </div>

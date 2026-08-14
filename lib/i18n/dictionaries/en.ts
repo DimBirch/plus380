@@ -2,7 +2,7 @@ import type { Dictionary } from '../dictionary-type';
 
 const en: Dictionary = {
   meta: {
-    title: '+380 — Event Promotion Agency. Tours, Festivals, Concerts',
+    title: 'EEE80 — Event Promotion Agency. Tours, Festivals, Concerts',
     description: 'The whole world.',
   },
   nav: {
@@ -122,13 +122,14 @@ const en: Dictionary = {
     ],
   },
   footer: {
+    credo: 'Entertainment of Entire Elements',
     tagline: 'An event promotion agency from Ukraine, working on stages around the world.',
     rights: 'All rights reserved.',
     admin: 'Admin panel',
   },
   admin: {
     loginTitle: 'Admin sign in',
-    loginSubtitle: '+380 team only',
+    loginSubtitle: 'EEE80 team only',
     email: 'Email',
     password: 'Password',
     signIn: 'Sign in',

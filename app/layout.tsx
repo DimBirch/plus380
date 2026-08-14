@@ -24,18 +24,18 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: '+380 — Event Promotion Agency',
+  title: 'EEE80 — Event Promotion Agency',
   description: 'The whole world.',
   openGraph: {
-    title: '+380 — Event Promotion Agency',
+    title: 'EEE80 — Event Promotion Agency',
     description: 'The whole world.',
-    siteName: '+380',
+    siteName: 'EEE80',
   },
   icons: {
     icon: [
       {
         url:
-          'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" rx="20" fill="%23050508"/%3E%3Ctext x="50" y="66" font-size="52" font-family="monospace" font-weight="700" fill="%238b5cf6" text-anchor="middle"%3E+%3C/text%3E%3C/svg%3E',
+          'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" rx="20" fill="%23050508"/%3E%3Ctext x="50" y="68" font-size="48" font-family="monospace" font-weight="700" fill="%238b5cf6" text-anchor="middle"%3EE%3C/text%3E%3C/svg%3E',
       },
     ],
   },

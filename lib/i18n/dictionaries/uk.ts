@@ -2,7 +2,7 @@ import type { Dictionary } from '../dictionary-type';
 
 const uk: Dictionary = {
   meta: {
-    title: '+380 — Промоутерська агенція. Тури, фестивалі, концерти',
+    title: 'EEE80 — Промоутерська агенція. Тури, фестивалі, концерти',
     description: 'Весь світ.',
   },
   nav: {
@@ -122,13 +122,14 @@ const uk: Dictionary = {
     ],
   },
   footer: {
+    credo: 'Entertainment of Entire Elements',
     tagline: 'Промоутерська агенція родом з України, що працює на сценах усього світу.',
     rights: 'Усі права захищено.',
     admin: 'Адмін-панель',
   },
   admin: {
     loginTitle: 'Вхід до адмін-панелі',
-    loginSubtitle: 'Тільки для команди +380',
+    loginSubtitle: 'Тільки для команди EEE80',
     email: 'Email',
     password: 'Пароль',
     signIn: 'Увійти',

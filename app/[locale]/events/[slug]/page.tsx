@@ -84,7 +84,7 @@ export default async function EventDetailPage({
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-mesh-glow">
-              <span className="font-display text-6xl font-bold text-bone-500">+380</span>
+              <span className="font-display text-6xl font-bold text-bone-500">EEE80</span>
             </div>
           )}
         </div>

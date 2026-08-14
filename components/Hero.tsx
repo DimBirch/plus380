@@ -22,7 +22,11 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
             <span className="text-gradient block">{dict.hero.titleLine2}</span>
           </h1>
 
-          <p className="mt-8 max-w-xl font-body text-base leading-relaxed text-bone-400 sm:text-lg">
+          <p className="mt-5 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-acid-500 sm:text-sm">
+            {dict.footer.credo}
+          </p>
+
+          <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-bone-400 sm:text-lg">
             {dict.hero.subtitle}
           </p>
 

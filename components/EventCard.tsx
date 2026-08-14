@@ -41,7 +41,7 @@ export default function EventCard({
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-mesh-glow bg-ink-800">
-            <span className="font-display text-3xl font-bold text-bone-500">+380</span>
+            <span className="font-display text-3xl font-bold text-bone-500">EEE80</span>
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/10 to-transparent" />
