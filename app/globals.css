@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050508;
+  color: #f7f7f9;
+}
+
+::selection {
+  background: #8b5cf6;
+  color: #050508;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a38;
+  border-radius: 999px;
+  border: 2px solid #050508;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
+
+/* Film-grain texture overlay */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer components {
+  .glass-panel {
+    @apply relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+  }
+
+  .neon-border {
+    @apply border border-volt-500/40 shadow-[0_0_0_1px_rgba(139,92,246,0.15),0_0_28px_-6px_rgba(139,92,246,0.55)];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-volt-400 via-flare-500 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-bone-50 px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-950 transition-all duration-300 hover:bg-volt-400 hover:shadow-[0_0_32px_-4px_rgba(139,92,246,0.8)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.02] px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-bone-50 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/60 hover:text-cyan-300;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-volt-400;
+  }
+
+  .section-heading {
+    @apply font-display text-4xl font-medium leading-[1.05] tracking-tight text-bone-50 sm:text-5xl md:text-6xl;
+  }
+}
