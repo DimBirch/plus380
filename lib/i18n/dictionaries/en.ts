@@ -4,7 +4,7 @@ const en: Dictionary = {
   meta: {
     title: '+380 — Event Promotion Agency. Tours, Festivals, Concerts',
     description:
-      '12+ years producing tours and festivals for world-class artists. Originally from Ukraine — active across the US, Canada, Europe, the UK, Turkey, the Balkans and the Arab world.',
+      '12+ years producing tours and festivals for world-class artists. Originally from Ukraine — active across the US, Canada, Europe, the UK, Turkey, the Balkans and the Gulf states.',
   },
   nav: {
     home: 'Home',
@@ -36,7 +36,7 @@ const en: Dictionary = {
   credibility: {
     eyebrow: 'HOW WE WORK',
     heading: 'Discipline that builds a reputation',
-    body: 'Our team is originally from Ukraine — and that is where we grew into an agency trusted across the US, Canada, all of Europe, the UK, Turkey, the Balkans and the Arab world. We run a large team with deep, hands-on background, and we take full responsibility for the comfort and safety of everyone involved: artists, technical contractors, guests, partners and sponsors.',
+    body: 'Our team is originally from Ukraine — and that is where we grew into an agency trusted across the US, Canada, all of Europe, the UK, Turkey, the Balkans and the Gulf states. We run a large team with deep, hands-on background, and we take full responsibility for the comfort and safety of everyone involved: artists, technical contractors, guests, partners and sponsors.',
     values: [
       {
         title: 'Precision',
@@ -68,7 +68,7 @@ const en: Dictionary = {
       { name: 'United Kingdom', note: '' },
       { name: 'Turkey', note: '' },
       { name: 'The Balkans', note: '' },
-      { name: 'Arab countries', note: '' },
+      { name: 'The Gulf States', note: '' },
     ],
   },
   specialization: {
