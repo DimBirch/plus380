@@ -23,9 +23,41 @@ export default function ContactSection({ dict }: { dict: Dictionary }) {
               <ArrowUpRight size={14} />
             </a>
           </div>
-          <div className="mt-6 flex items-center justify-center gap-2 font-body text-sm text-bone-500">
-            <MapPin size={14} />
-            {dict.contact.location}
+        </Reveal>
+
+        <Reveal delay={0.16}>
+          <div className="mt-14">
+            <span className="eyebrow">{dict.contact.officesLabel}</span>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+              {dict.contact.offices.map((office) => (
+                <div
+                  key={office.city}
+                  className={`flex items-center gap-2.5 rounded-full border px-5 py-3 backdrop-blur-sm ${
+                    office.hq
+                      ? 'border-volt-500/50 bg-volt-500/10'
+                      : office.comingSoon
+                        ? 'border-white/10 bg-white/[0.02] opacity-70'
+                        : 'border-white/15 bg-white/[0.03]'
+                  }`}
+                >
+                  <MapPin size={14} className={office.hq ? 'text-volt-400' : 'text-bone-500'} />
+                  <span className="font-display text-sm font-semibold text-bone-50 sm:text-base">
+                    {office.city}
+                  </span>
+                  <span className="font-body text-sm text-bone-400">{office.country}</span>
+                  {office.hq && (
+                    <span className="rounded-full bg-volt-500/20 px-2.5 py-0.5 font-mono text-[0.6rem] uppercase tracking-widest text-volt-300 ring-1 ring-inset ring-volt-400/40">
+                      {dict.contact.hqBadge}
+                    </span>
+                  )}
+                  {office.comingSoon && (
+                    <span className="rounded-full bg-white/5 px-2.5 py-0.5 font-mono text-[0.6rem] uppercase tracking-widest text-bone-400 ring-1 ring-inset ring-white/15">
+                      {dict.contact.comingSoonBadge}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </Reveal>
       </div>

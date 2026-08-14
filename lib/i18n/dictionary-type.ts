@@ -70,6 +70,10 @@ export interface Dictionary {
     emailLabel: string;
     locationLabel: string;
     location: string;
+    officesLabel: string;
+    hqBadge: string;
+    comingSoonBadge: string;
+    offices: { city: string; country: string; hq?: boolean; comingSoon?: boolean }[];
   };
   footer: {
     tagline: string;
