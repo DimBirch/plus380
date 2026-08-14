@@ -1,6 +1,7 @@
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import Reveal from './Reveal';
 import Equalizer from './Equalizer';
+import LaserBeams from './LaserBeams';
 
 export default function Specialization({ dict }: { dict: Dictionary }) {
   return (
@@ -28,6 +29,7 @@ export default function Specialization({ dict }: { dict: Dictionary }) {
           <Reveal delay={0.12}>
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10">
               <div className="absolute inset-0 bg-mesh-glow" />
+              <LaserBeams opacity={0.5} />
               <div className="absolute inset-x-0 bottom-0 h-2/3 [mask-image:linear-gradient(to_top,black,transparent)]">
                 <Equalizer className="h-full" barCount={44} opacity={0.6} />
               </div>

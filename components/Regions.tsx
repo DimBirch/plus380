@@ -1,10 +1,12 @@
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import Reveal from './Reveal';
 import Equalizer from './Equalizer';
+import LaserBeams from './LaserBeams';
 
 export default function Regions({ dict }: { dict: Dictionary }) {
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-ink-900 py-24 sm:py-32">
+      <LaserBeams opacity={0.35} />
       <div className="absolute inset-x-0 bottom-0 h-32 sm:h-44 [mask-image:linear-gradient(to_top,black,transparent)]">
         <Equalizer className="h-full" opacity={0.3} />
       </div>
