@@ -14,8 +14,8 @@ const en: Dictionary = {
   },
   hero: {
     eyebrow: 'INTERNATIONAL EVENT AGENCY · SINCE 2013',
-    titleLine1: 'FROM UKRAINE.',
-    titleLine2: 'ON EVERY STAGE.',
+    titleLine1: 'EVERY EVENT —',
+    titleLine2: 'AN EPIC EXPERIENCE.',
     subtitle:
       'For over 12 years we have produced tours, festivals and concerts for the biggest names on the world stage. Precision in logistics, full accountability for the outcome, and a scale that speaks for itself.',
     ctaPrimary: 'View Events',
