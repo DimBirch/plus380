@@ -5,6 +5,7 @@ import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import type { Locale } from '@/lib/i18n/config';
 import EventCard from './EventCard';
 import Reveal from './Reveal';
+import PulseWave from './PulseWave';
 
 export default function FeaturedEvents({
   events,
@@ -16,7 +17,8 @@ export default function FeaturedEvents({
   dict: Dictionary;
 }) {
   return (
-    <section className="relative bg-ink-950 py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-ink-950 py-24 sm:py-32">
+      <PulseWave className="absolute left-[3%] top-[4%] hidden xl:block" color="#d4ff3f" width={200} delay={1.8} duration={6.8} variant={3} />
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <Reveal className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>

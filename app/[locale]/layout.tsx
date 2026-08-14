@@ -19,6 +19,12 @@ export async function generateMetadata({
   return {
     title: dict.meta.title,
     description: dict.meta.description,
+    openGraph: {
+      title: dict.meta.title,
+      description: dict.meta.description,
+      siteName: '+380',
+      locale: params.locale,
+    },
   };
 }
 

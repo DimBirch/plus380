@@ -25,8 +25,12 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: '+380 — Event Promotion Agency',
-  description:
-    '12+ years producing tours and festivals for world-class artists. From Ukraine to stages across the US, Canada, Europe, the UK, Turkey, the Balkans and the Gulf states.',
+  description: 'The whole world.',
+  openGraph: {
+    title: '+380 — Event Promotion Agency',
+    description: 'The whole world.',
+    siteName: '+380',
+  },
   icons: {
     icon: [
       {

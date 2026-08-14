@@ -3,8 +3,7 @@ import type { Dictionary } from '../dictionary-type';
 const en: Dictionary = {
   meta: {
     title: '+380 — Event Promotion Agency. Tours, Festivals, Concerts',
-    description:
-      '12+ years producing tours and festivals for world-class artists. Originally from Ukraine — active across the US, Canada, Europe, the UK, Turkey, the Balkans and the Gulf states.',
+    description: 'The whole world.',
   },
   nav: {
     home: 'Home',

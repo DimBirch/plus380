@@ -5,7 +5,8 @@ import PulseWave from './PulseWave';
 export default function Credibility({ dict }: { dict: Dictionary }) {
   return (
     <section id="about" className="relative scroll-mt-24 overflow-hidden bg-ink-950 py-24 sm:py-32">
-      <PulseWave className="absolute right-[2%] top-[8%] hidden lg:block" color="#ff5fa2" width={240} delay={1.5} duration={9} />
+      <PulseWave className="absolute right-[2%] top-[8%] hidden lg:block" color="#ff5fa2" width={240} delay={1.5} duration={9} variant={1} />
+      <PulseWave className="absolute left-[1%] bottom-[6%] hidden xl:block" color="#22d3ee" width={210} delay={4} duration={7} variant={5} flip />
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
           <Reveal>
