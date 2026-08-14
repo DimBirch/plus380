@@ -1,8 +1,5 @@
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import Reveal from './Reveal';
-import Equalizer from './Equalizer';
-import LaserBeams from './LaserBeams';
-
 export default function Specialization({ dict }: { dict: Dictionary }) {
   return (
     <section className="relative overflow-hidden bg-ink-950 py-24 sm:py-32">
@@ -29,10 +26,6 @@ export default function Specialization({ dict }: { dict: Dictionary }) {
           <Reveal delay={0.12}>
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10">
               <div className="absolute inset-0 bg-mesh-glow" />
-              <LaserBeams opacity={0.5} />
-              <div className="absolute inset-x-0 bottom-0 h-2/3 [mask-image:linear-gradient(to_top,black,transparent)]">
-                <Equalizer className="h-full" barCount={44} opacity={0.6} />
-              </div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative flex h-56 w-56 items-center justify-center rounded-full border border-volt-500/40 sm:h-72 sm:w-72">
                   <div className="absolute h-40 w-40 animate-spin-slow rounded-full border border-dashed border-cyan-400/40 sm:h-52 sm:w-52" />

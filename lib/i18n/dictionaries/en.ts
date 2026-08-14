@@ -73,8 +73,8 @@ const en: Dictionary = {
   specialization: {
     eyebrow: 'SPECIALIZATION',
     heading: 'Electronic Dance Music is our core focus',
-    body: 'We specialize in electronic music events of any scale — from club nights to open-air festivals. We built techno festivals from the ground up that drew over 150,000 attendees every year. Our expertise is not limited to EDM: tours, concerts, corporate events and shows of any genre are handled with the same level of accountability.',
-    tags: ['Techno & House', 'Open-air Festivals', 'Club Tours', 'Concerts', 'Corporate Events', 'Artist Relocation'],
+    body: 'We specialize in electronic music events of any scale — from club nights to open-air festivals. We built techno festivals from the ground up that drew over 150,000 attendees every year. Our expertise is not limited to EDM: we take on events of any complexity — from large-scale birthday parties and corporate team-building to multi-day festivals for an unlimited number of guests.',
+    tags: ['Techno & House', 'Open-air Festivals', 'Club Tours', 'Concerts', 'Birthday Parties', 'Team-building', 'Corporate Events'],
   },
   gallery: {
     eyebrow: 'EVENTS',

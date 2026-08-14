@@ -36,64 +36,6 @@ body {
   background: #8b5cf6;
 }
 
-/* Equalizer bars — each of the 4 patterns bounces through irregular
-   stops so a row of bars never looks like it's pulsing in unison. */
-@keyframes eq-a {
-  0% { transform: scaleY(0.28); }
-  15% { transform: scaleY(0.82); }
-  30% { transform: scaleY(0.42); }
-  50% { transform: scaleY(1); }
-  65% { transform: scaleY(0.34); }
-  80% { transform: scaleY(0.68); }
-  100% { transform: scaleY(0.28); }
-}
-@keyframes eq-b {
-  0% { transform: scaleY(0.55); }
-  20% { transform: scaleY(0.22); }
-  40% { transform: scaleY(0.88); }
-  55% { transform: scaleY(0.38); }
-  75% { transform: scaleY(1); }
-  90% { transform: scaleY(0.48); }
-  100% { transform: scaleY(0.55); }
-}
-@keyframes eq-c {
-  0% { transform: scaleY(0.38); }
-  10% { transform: scaleY(0.92); }
-  35% { transform: scaleY(0.26); }
-  55% { transform: scaleY(0.74); }
-  70% { transform: scaleY(0.18); }
-  85% { transform: scaleY(1); }
-  100% { transform: scaleY(0.38); }
-}
-@keyframes eq-d {
-  0% { transform: scaleY(0.78); }
-  25% { transform: scaleY(0.32); }
-  45% { transform: scaleY(1); }
-  60% { transform: scaleY(0.28); }
-  80% { transform: scaleY(0.62); }
-  100% { transform: scaleY(0.78); }
-}
-
-/* Concert laser beams — irregular flicker so beams from the same source
-   never dim/brighten in unison. */
-@keyframes laser-flicker-a {
-  0% { opacity: 0.28; }
-  10% { opacity: 0.85; }
-  22% { opacity: 0.4; }
-  40% { opacity: 0.75; }
-  60% { opacity: 0.22; }
-  75% { opacity: 0.65; }
-  100% { opacity: 0.28; }
-}
-@keyframes laser-flicker-b {
-  0% { opacity: 0.5; }
-  30% { opacity: 0.18; }
-  50% { opacity: 0.9; }
-  70% { opacity: 0.32; }
-  85% { opacity: 0.6; }
-  100% { opacity: 0.5; }
-}
-
 /* Film-grain texture overlay */
 .grain::before {
   content: '';
