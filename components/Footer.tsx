@@ -15,7 +15,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="mailto:booking@plus380.com"
+                href="mailto:hello@rel1ve.eu"
                 aria-label="Email"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-volt-400/60 hover:text-volt-400"
               >
@@ -56,10 +56,10 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
             <div>
               <p className="eyebrow mb-4">{dict.contact.emailLabel}</p>
               <a
-                href="mailto:booking@plus380.com"
+                href="mailto:hello@rel1ve.eu"
                 className="font-body text-sm text-bone-400 hover:text-bone-50"
               >
-                booking@plus380.com
+                hello@rel1ve.eu
               </a>
               <p className="mt-3 font-body text-sm text-bone-400">{dict.contact.location}</p>
             </div>
