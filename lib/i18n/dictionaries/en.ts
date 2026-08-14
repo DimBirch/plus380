@@ -14,8 +14,8 @@ const en: Dictionary = {
   },
   hero: {
     eyebrow: 'INTERNATIONAL EVENT AGENCY · SINCE 2013',
-    titleLine1: 'EVERY EVENT —',
-    titleLine2: 'AN EPIC EXPERIENCE.',
+    titleLine1: 'OUR EPIC EXPERIENCE —',
+    titleLine2: 'YOUR PEACE OF MIND.',
     subtitle:
       'For over 12 years we have produced tours, festivals and concerts for the biggest names on the world stage. Precision in logistics, full accountability for the outcome, and a scale that speaks for itself.',
     ctaPrimary: 'View Events',
