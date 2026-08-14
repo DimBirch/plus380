@@ -1,6 +1,6 @@
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import Reveal from './Reveal';
-import PulseWave from './PulseWave';
+import Equalizer from './Equalizer';
 
 export default function Specialization({ dict }: { dict: Dictionary }) {
   return (
@@ -28,9 +28,9 @@ export default function Specialization({ dict }: { dict: Dictionary }) {
           <Reveal delay={0.12}>
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10">
               <div className="absolute inset-0 bg-mesh-glow" />
-              <div className="absolute inset-0 bg-sound-wave bg-[size:90px_30px] opacity-60" />
-              <PulseWave className="absolute left-[8%] top-[12%]" color="#ffffff" width={180} delay={1} duration={6.5} variant={0} />
-              <PulseWave className="absolute right-[6%] bottom-[14%] hidden sm:block" color="#d4ff3f" width={150} delay={3.5} duration={5.5} variant={3} flip />
+              <div className="absolute inset-x-0 bottom-0 h-2/3 [mask-image:linear-gradient(to_top,black,transparent)]">
+                <Equalizer className="h-full" barCount={44} opacity={0.6} />
+              </div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative flex h-56 w-56 items-center justify-center rounded-full border border-volt-500/40 sm:h-72 sm:w-72">
                   <div className="absolute h-40 w-40 animate-spin-slow rounded-full border border-dashed border-cyan-400/40 sm:h-52 sm:w-52" />

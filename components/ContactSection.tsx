@@ -1,14 +1,11 @@
 import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import Reveal from './Reveal';
-import PulseWave from './PulseWave';
 
 export default function ContactSection({ dict }: { dict: Dictionary }) {
   return (
     <section id="contact" className="relative scroll-mt-24 overflow-hidden bg-ink-900 py-24 sm:py-32">
       <div className="absolute inset-0 bg-mesh-glow opacity-70" />
-      <PulseWave className="absolute left-[10%] top-[10%] hidden md:block" color="#ff5fa2" width={220} delay={0} duration={7.5} variant={6} />
-      <PulseWave className="absolute right-[8%] bottom-[16%] hidden md:block" color="#a78bfa" width={240} delay={3.5} duration={8} variant={2} flip />
       <div className="relative mx-auto max-w-5xl px-6 text-center sm:px-8">
         <Reveal>
           <span className="eyebrow">{dict.contact.eyebrow}</span>
