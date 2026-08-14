@@ -8,6 +8,7 @@ import { isLocale, type Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/get-dictionary';
 import { getEventBySlug } from '@/lib/data/events';
 import GalleryLightbox from '@/components/GalleryLightbox';
+import Logo from '@/components/Logo';
 
 export default async function EventDetailPage({
   params,
@@ -51,7 +52,7 @@ export default async function EventDetailPage({
       <div className="mx-auto max-w-5xl px-6 sm:px-8">
         <Link
           href={`/${locale}/events`}
-          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-bone-400 hover:text-volt-400"
+          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-bone-400 hover:text-red-400"
         >
           <ArrowLeft size={14} />
           {dict.gallery.backToEvents}
@@ -60,12 +61,12 @@ export default async function EventDetailPage({
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <span
             className={`rounded-full px-3 py-1 font-mono text-[0.65rem] font-semibold uppercase tracking-widest ${
-              isPast ? 'bg-white/10 text-bone-300' : 'bg-volt-500/20 text-volt-300 ring-1 ring-inset ring-volt-400/40'
+              isPast ? 'bg-white/10 text-bone-300' : 'bg-red-500/20 text-red-300 ring-1 ring-inset ring-red-400/40'
             }`}
           >
             {isPast ? dict.gallery.past : dict.gallery.upcoming}
           </span>
-          <span className="font-mono text-[0.65rem] uppercase tracking-widest text-cyan-400">
+          <span className="font-mono text-[0.65rem] uppercase tracking-widest text-red-400">
             {dict.categories[event.category]}
           </span>
         </div>
@@ -84,7 +85,7 @@ export default async function EventDetailPage({
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-mesh-glow">
-              <span className="font-display text-6xl font-bold text-bone-500">EEE80</span>
+              <Logo variant="mark" size="xl" />
             </div>
           )}
         </div>
@@ -108,7 +109,7 @@ export default async function EventDetailPage({
           <aside className="glass-panel h-max space-y-6 p-6">
             {infoItems.map((item) => (
               <div key={item.label} className="flex items-start gap-3">
-                <item.icon size={16} className="mt-0.5 shrink-0 text-volt-400" />
+                <item.icon size={16} className="mt-0.5 shrink-0 text-red-400" />
                 <div>
                   <div className="font-mono text-[0.65rem] uppercase tracking-widest text-bone-500">
                     {item.label}

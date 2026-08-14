@@ -8,12 +8,12 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
       {/* Background layers */}
       <div className="absolute inset-0 bg-mesh-glow" />
       <div className="absolute -right-32 top-1/3 h-[36rem] w-[36rem] rounded-full border border-white/[0.06]" />
-      <div className="absolute -right-32 top-1/3 h-[26rem] w-[26rem] translate-x-10 translate-y-10 rounded-full border border-volt-500/20 animate-spin-slow" />
+      <div className="absolute -right-32 top-1/3 h-[26rem] w-[26rem] translate-x-10 translate-y-10 rounded-full border border-red-500/20 animate-spin-slow" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="max-w-4xl">
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-4 py-1.5 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-acid-500 shadow-[0_0_8px_2px_rgba(194,242,41,0.8)]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-bone-50 shadow-[0_0_8px_2px_rgba(247,247,249,0.8)]" />
             <span className="eyebrow !text-bone-300">{dict.hero.eyebrow}</span>
           </div>
 
@@ -22,7 +22,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
             <span className="text-gradient block">{dict.hero.titleLine2}</span>
           </h1>
 
-          <p className="mt-5 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-acid-500 sm:text-sm">
+          <p className="mt-5 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-red-500 sm:text-sm">
             {dict.footer.credo}
           </p>
 

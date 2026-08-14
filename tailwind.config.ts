@@ -25,35 +25,23 @@ const config: Config = {
           400: '#9a9caa',
           500: '#71738a',
         },
-        volt: {
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
-        },
-        cyan: {
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#06b6d4',
-        },
-        flare: {
-          400: '#ff5fa2',
-          500: '#ff2f92',
-          600: '#e6127a',
-        },
-        acid: {
-          400: '#d4ff3f',
-          500: '#c2f229',
+        red: {
+          300: '#ff9d9f',
+          400: '#ff4d51',
+          500: '#e31b23',
+          600: '#b3141a',
+          700: '#8a0f14',
         },
       },
       fontFamily: {
         display: ['var(--font-display)', 'sans-serif'],
+        logo: ['var(--font-logo)', 'sans-serif'],
         body: ['var(--font-body)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
       },
       backgroundImage: {
         'mesh-glow':
-          'radial-gradient(ellipse 85% 55% at 20% 0%, rgba(124,58,237,0.5), transparent 62%), radial-gradient(ellipse 65% 45% at 85% 15%, rgba(34,211,238,0.38), transparent 62%), radial-gradient(ellipse 55% 45% at 50% 100%, rgba(255,47,146,0.3), transparent 62%)',
+          'radial-gradient(ellipse 85% 55% at 20% 0%, rgba(227,27,35,0.45), transparent 62%), radial-gradient(ellipse 65% 45% at 85% 15%, rgba(179,20,26,0.32), transparent 62%), radial-gradient(ellipse 55% 45% at 50% 100%, rgba(255,77,81,0.22), transparent 62%)',
       },
       keyframes: {
         marquee: {

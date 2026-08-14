@@ -64,7 +64,7 @@ export default function EventsExplorer({
               onClick={() => setTab(t.key)}
               className={`rounded-full px-4 py-2 font-mono text-xs font-semibold uppercase tracking-widest transition-colors ${
                 tab === t.key
-                  ? 'bg-volt-500 text-ink-950'
+                  ? 'bg-red-500 text-ink-950'
                   : 'text-bone-400 hover:text-bone-50'
               }`}
             >
@@ -80,7 +80,7 @@ export default function EventsExplorer({
               onClick={() => setCategory(c)}
               className={`rounded-full border px-3.5 py-1.5 font-mono text-[0.65rem] font-medium uppercase tracking-widest transition-colors ${
                 category === c
-                  ? 'border-cyan-400/60 text-cyan-300'
+                  ? 'border-red-400/60 text-red-300'
                   : 'border-white/10 text-bone-500 hover:text-bone-300'
               }`}
             >

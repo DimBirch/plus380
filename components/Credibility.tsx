@@ -17,8 +17,8 @@ export default function Credibility({ dict }: { dict: Dictionary }) {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {dict.credibility.values.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.08}>
-                <div className="glass-panel h-full p-6 transition-colors duration-300 hover:border-volt-500/40">
-                  <span className="font-mono text-xs font-bold text-volt-400">
+                <div className="glass-panel h-full p-6 transition-colors duration-300 hover:border-red-500/40">
+                  <span className="font-mono text-xs font-bold text-red-400">
                     0{i + 1}
                   </span>
                   <h3 className="mt-4 font-display text-xl font-semibold text-bone-50">

@@ -1,41 +1,50 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
+import { Unbounded, Anton, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const display = Space_Grotesk({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['500', '600', '700'],
+// Headings/body copy — needs Cyrillic for the UA locale.
+const display = Unbounded({
+  subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'],
+  weight: ['600', '700', '800', '900'],
   variable: '--font-display',
   display: 'swap',
 });
 
+// Wordmark only ("THREEEIGHTY" is never translated) — Latin is enough.
+const logo = Anton({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-logo',
+  display: 'swap',
+});
+
 const body = Inter({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'],
   weight: ['400', '500', '600'],
   variable: '--font-body',
   display: 'swap',
 });
 
 const mono = JetBrains_Mono({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-mono',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'EEE80 — Event Promotion Agency',
+  title: 'THREEEIGHTY — Epic Event Experience',
   description: 'The whole world.',
   openGraph: {
-    title: 'EEE80 — Event Promotion Agency',
+    title: 'THREEEIGHTY — Epic Event Experience',
     description: 'The whole world.',
-    siteName: 'EEE80',
+    siteName: 'THREEEIGHTY',
   },
   icons: {
     icon: [
       {
         url:
-          'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" rx="20" fill="%23050508"/%3E%3Ctext x="50" y="68" font-size="48" font-family="monospace" font-weight="700" fill="%238b5cf6" text-anchor="middle"%3EE%3C/text%3E%3C/svg%3E',
+          'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" rx="18" fill="%23e31b23"/%3E%3Ctext x="50" y="70" font-size="56" font-family="Arial, sans-serif" font-weight="900" fill="%23ffffff" text-anchor="middle"%3E3%3C/text%3E%3C/svg%3E',
       },
     ],
   },
@@ -43,7 +52,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="uk" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html
+      lang="uk"
+      className={`${display.variable} ${logo.variable} ${body.variable} ${mono.variable}`}
+    >
       <body className="grain min-h-screen bg-ink-950 font-body antialiased">{children}</body>
     </html>
   );

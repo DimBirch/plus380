@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import type { Locale } from '@/lib/i18n/config';
+import Logo from './Logo';
 
 export default function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const pathname = usePathname();
@@ -37,10 +38,8 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-8">
         <Link href={`/${locale}`} className="group flex items-center gap-2">
-          <span className="font-display text-2xl font-bold tracking-tight text-bone-50">
-            EEE80
-          </span>
-          <span className="hidden h-1.5 w-1.5 rounded-full bg-volt-400 shadow-[0_0_10px_2px_rgba(139,92,246,0.9)] group-hover:animate-pulseGlow sm:block" />
+          <Logo size="sm" />
+          <span className="hidden h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_10px_2px_rgba(227,27,35,0.9)] group-hover:animate-pulseGlow sm:block" />
         </Link>
 
         <nav className="hidden items-center gap-9 md:flex">
@@ -48,7 +47,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
             <Link
               key={l.href}
               href={l.href}
-              className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-bone-300 transition-colors hover:text-volt-400"
+              className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-bone-300 transition-colors hover:text-red-400"
             >
               {l.label}
             </Link>
@@ -58,7 +57,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
         <div className="hidden items-center gap-4 md:flex">
           <Link
             href={altHref}
-            className="rounded-full border border-white/15 px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-bone-300 transition-colors hover:border-volt-400/60 hover:text-volt-400"
+            className="rounded-full border border-white/15 px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
           >
             {locale === 'uk' ? 'EN' : 'UA'}
           </Link>

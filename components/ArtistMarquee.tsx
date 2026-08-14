@@ -21,7 +21,7 @@ export default function ArtistMarquee() {
             <span className="font-display text-xl font-medium text-bone-300 sm:text-2xl">
               {artist}
             </span>
-            <span className="h-1.5 w-1.5 rounded-full bg-volt-500" />
+            <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
           </span>
         ))}
       </div>

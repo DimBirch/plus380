@@ -48,7 +48,7 @@ export default function GalleryLightbox({
           <button
             aria-label="Close"
             onClick={close}
-            className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-bone-50 hover:border-volt-400/60"
+            className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-bone-50 hover:border-red-400/60"
           >
             <X size={18} />
           </button>
@@ -59,7 +59,7 @@ export default function GalleryLightbox({
               e.stopPropagation();
               prev();
             }}
-            className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-bone-50 hover:border-volt-400/60 sm:left-8"
+            className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-bone-50 hover:border-red-400/60 sm:left-8"
           >
             <ChevronLeft size={20} />
           </button>
@@ -83,7 +83,7 @@ export default function GalleryLightbox({
               e.stopPropagation();
               next();
             }}
-            className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-bone-50 hover:border-volt-400/60 sm:right-8"
+            className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-bone-50 hover:border-red-400/60 sm:right-8"
           >
             <ChevronRight size={20} />
           </button>

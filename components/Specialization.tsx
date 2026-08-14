@@ -27,10 +27,10 @@ export default function Specialization({ dict }: { dict: Dictionary }) {
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10">
               <div className="absolute inset-0 bg-mesh-glow" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative flex h-56 w-56 items-center justify-center rounded-full border border-volt-500/40 sm:h-72 sm:w-72">
-                  <div className="absolute h-40 w-40 animate-spin-slow rounded-full border border-dashed border-cyan-400/40 sm:h-52 sm:w-52" />
+                <div className="relative flex h-56 w-56 items-center justify-center rounded-full border border-red-500/40 sm:h-72 sm:w-72">
+                  <div className="absolute h-40 w-40 animate-spin-slow rounded-full border border-dashed border-red-400/40 sm:h-52 sm:w-52" />
                   <span className="font-display text-6xl font-bold text-bone-50 sm:text-7xl">
-                    150K<span className="text-flare-500">+</span>
+                    150K<span className="text-red-500">+</span>
                   </span>
                 </div>
               </div>

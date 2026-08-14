@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Instagram, Facebook, Mail } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import type { Locale } from '@/lib/i18n/config';
+import Logo from './Logo';
 
 export default function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
@@ -9,10 +10,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
       <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row">
           <div className="max-w-sm">
-            <span className="font-display text-3xl font-bold text-bone-50">EEE80</span>
-            <p className="mt-2 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-volt-400">
-              {dict.footer.credo}
-            </p>
+            <Logo size="lg" showTagline />
             <p className="mt-4 font-body text-sm leading-relaxed text-bone-400">
               {dict.footer.tagline}
             </p>
@@ -20,21 +18,21 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
               <a
                 href="mailto:hello@rel1ve.eu"
                 aria-label="Email"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-volt-400/60 hover:text-volt-400"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
               >
                 <Mail size={16} />
               </a>
               <a
                 href="#"
                 aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-volt-400/60 hover:text-volt-400"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
               >
                 <Instagram size={16} />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-volt-400/60 hover:text-volt-400"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
               >
                 <Facebook size={16} />
               </a>
@@ -73,7 +71,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 font-mono text-[0.7rem] uppercase tracking-widest text-bone-500 sm:flex-row sm:items-center">
-          <span>© {new Date().getFullYear()} EEE80. {dict.footer.rights}</span>
+          <span>© {new Date().getFullYear()} THREEEIGHTY. {dict.footer.rights}</span>
           <span>Breda → Worldwide</span>
         </div>
       </div>

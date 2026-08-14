@@ -10,7 +10,7 @@ export default function Stats({ dict }: { dict: Dictionary }) {
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6">
           {items.map((item, i) => (
             <Reveal key={item.label} delay={i * 0.08}>
-              <div className="border-l-2 border-volt-500/50 pl-4">
+              <div className="border-l-2 border-red-500/50 pl-4">
                 <div className="font-display text-4xl font-bold text-bone-50 sm:text-5xl">
                   {item.value}
                 </div>
