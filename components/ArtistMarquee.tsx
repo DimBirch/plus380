@@ -2,17 +2,10 @@ const ARTISTS = [
   'The Prodigy',
   'Armin van Buuren',
   'Tiësto',
-  'Till Lindemann',
-  'Lara Fabian',
-  'Thirty Seconds to Mars',
-  'Andrea Bocelli',
-  'Dimash',
-  '50 Cent',
-  'Garou',
-  'ZAZ',
-  'David Garrett',
   'Chemical Brothers',
   'David Guetta',
+  'Boris Brejcha',
+  'Paul Kalkbrenner',
 ];
 
 export default function ArtistMarquee() {
