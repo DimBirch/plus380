@@ -38,7 +38,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-10">
             <div>
               <p className="eyebrow mb-4">{dict.nav.home}</p>
               <div className="flex flex-col gap-2.5 font-body text-sm text-bone-400">
@@ -66,21 +66,12 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
                 {dict.contact.locationTagline}
               </p>
             </div>
-            <div>
-              <p className="eyebrow mb-4">+380</p>
-              <Link
-                href="/admin/login"
-                className="font-body text-sm text-bone-500 hover:text-bone-300"
-              >
-                {dict.footer.admin}
-              </Link>
-            </div>
           </div>
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 font-mono text-[0.7rem] uppercase tracking-widest text-bone-500 sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} +380. {dict.footer.rights}</span>
-          <span>Kyiv → Worldwide</span>
+          <span>Breda → Worldwide</span>
         </div>
       </div>
     </footer>

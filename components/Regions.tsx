@@ -1,10 +1,13 @@
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import Reveal from './Reveal';
+import PulseWave from './PulseWave';
 
 export default function Regions({ dict }: { dict: Dictionary }) {
   return (
-    <section className="relative border-y border-white/10 bg-ink-900 py-24 sm:py-32">
+    <section className="relative overflow-hidden border-y border-white/10 bg-ink-900 py-24 sm:py-32">
       <div className="absolute inset-0 bg-sound-wave bg-[size:120px_40px] opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)]" />
+      <PulseWave className="absolute left-[6%] top-[10%] hidden md:block" color="#a78bfa" width={260} delay={2} duration={7} />
+      <PulseWave className="absolute right-[4%] bottom-[10%] hidden lg:block" color="#22d3ee" width={200} delay={4.5} duration={8} />
       <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
         <Reveal className="max-w-2xl">
           <span className="eyebrow">{dict.regions.eyebrow}</span>

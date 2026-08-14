@@ -1,9 +1,10 @@
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import Reveal from './Reveal';
+import PulseWave from './PulseWave';
 
 export default function Specialization({ dict }: { dict: Dictionary }) {
   return (
-    <section className="relative bg-ink-950 py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-ink-950 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
           <Reveal>
@@ -28,6 +29,7 @@ export default function Specialization({ dict }: { dict: Dictionary }) {
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10">
               <div className="absolute inset-0 bg-mesh-glow" />
               <div className="absolute inset-0 bg-sound-wave bg-[size:90px_30px] opacity-60" />
+              <PulseWave className="absolute left-[8%] top-[12%]" color="#ffffff" width={180} delay={1} duration={6.5} />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative flex h-56 w-56 items-center justify-center rounded-full border border-volt-500/40 sm:h-72 sm:w-72">
                   <div className="absolute h-40 w-40 animate-spin-slow rounded-full border border-dashed border-cyan-400/40 sm:h-52 sm:w-52" />

@@ -1,9 +1,11 @@
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import Reveal from './Reveal';
+import PulseWave from './PulseWave';
 
 export default function Credibility({ dict }: { dict: Dictionary }) {
   return (
-    <section id="about" className="relative scroll-mt-24 bg-ink-950 py-24 sm:py-32">
+    <section id="about" className="relative scroll-mt-24 overflow-hidden bg-ink-950 py-24 sm:py-32">
+      <PulseWave className="absolute right-[2%] top-[8%] hidden lg:block" color="#ff5fa2" width={240} delay={1.5} duration={9} />
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
           <Reveal>

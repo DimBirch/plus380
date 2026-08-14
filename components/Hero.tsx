@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowDown } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import type { Locale } from '@/lib/i18n/config';
+import PulseWave from './PulseWave';
 
 export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
@@ -11,6 +12,8 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
       <div className="absolute inset-0 bg-sound-wave bg-[size:120px_40px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_20%,black,transparent)]" />
       <div className="absolute -right-32 top-1/3 h-[36rem] w-[36rem] rounded-full border border-white/[0.06]" />
       <div className="absolute -right-32 top-1/3 h-[26rem] w-[26rem] translate-x-10 translate-y-10 rounded-full border border-volt-500/20 animate-spin-slow" />
+      <PulseWave className="absolute right-[8%] top-[22%] hidden md:block" color="#22d3ee" width={280} delay={0.5} duration={7.5} />
+      <PulseWave className="absolute left-[4%] bottom-[14%] hidden lg:block" color="#a78bfa" width={220} delay={3} duration={8.5} />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="max-w-4xl">
