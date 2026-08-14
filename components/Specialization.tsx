@@ -27,7 +27,7 @@ export default function Specialization({ dict }: { dict: Dictionary }) {
           <Reveal delay={0.12}>
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10">
               <div className="absolute inset-0 bg-mesh-glow" />
-              <div className="absolute inset-0 bg-grid-lines bg-[size:40px_40px] opacity-60" />
+              <div className="absolute inset-0 bg-sound-wave bg-[size:90px_30px] opacity-60" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative flex h-56 w-56 items-center justify-center rounded-full border border-volt-500/40 sm:h-72 sm:w-72">
                   <div className="absolute h-40 w-40 animate-spin-slow rounded-full border border-dashed border-cyan-400/40 sm:h-52 sm:w-52" />

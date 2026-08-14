@@ -61,7 +61,10 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
               >
                 hello@rel1ve.eu
               </a>
-              <p className="mt-3 font-body text-sm text-bone-400">{dict.contact.location}</p>
+              <p className="mt-3 font-body text-sm text-bone-400">{dict.contact.locationHq}</p>
+              <p className="mt-1 font-display text-sm font-semibold text-gradient">
+                {dict.contact.locationTagline}
+              </p>
             </div>
             <div>
               <p className="eyebrow mb-4">+380</p>

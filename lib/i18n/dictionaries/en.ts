@@ -110,6 +110,8 @@ const en: Dictionary = {
     emailLabel: 'Email',
     locationLabel: 'Offices',
     location: 'Headquartered in Breda, Netherlands · projects worldwide',
+    locationHq: 'Headquartered in Breda, Netherlands',
+    locationTagline: 'Open to the whole world',
     officesLabel: 'Our offices',
     hqBadge: 'Headquarters',
     comingSoonBadge: 'Opening soon',

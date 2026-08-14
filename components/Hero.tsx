@@ -8,7 +8,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink-950 pt-24">
       {/* Background layers */}
       <div className="absolute inset-0 bg-mesh-glow" />
-      <div className="absolute inset-0 bg-grid-lines bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_20%,black,transparent)]" />
+      <div className="absolute inset-0 bg-sound-wave bg-[size:120px_40px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_20%,black,transparent)]" />
       <div className="absolute -right-32 top-1/3 h-[36rem] w-[36rem] rounded-full border border-white/[0.06]" />
       <div className="absolute -right-32 top-1/3 h-[26rem] w-[26rem] translate-x-10 translate-y-10 rounded-full border border-volt-500/20 animate-spin-slow" />
 

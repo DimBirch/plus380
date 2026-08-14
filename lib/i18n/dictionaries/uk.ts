@@ -110,6 +110,8 @@ const uk: Dictionary = {
     emailLabel: 'Email',
     locationLabel: 'Офіси',
     location: 'Головний офіс — Бреда, Нідерланди · проєкти по всьому світу',
+    locationHq: 'Головний офіс — Бреда, Нідерланди',
+    locationTagline: 'Відкриті для всього світу',
     officesLabel: 'Наші офіси',
     hqBadge: 'Головний офіс',
     comingSoonBadge: 'Відкривається',
