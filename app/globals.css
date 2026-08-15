@@ -36,6 +36,31 @@ body {
   background: #e31b23;
 }
 
+/* Dancing figure — each limb rotates around its joint on its own timing so
+   the whole thing reads as dancing, not a synced robot. */
+@keyframes dance-bounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-16px); }
+  50% { transform: translateY(2px); }
+  75% { transform: translateY(-9px); }
+}
+@keyframes dance-arm-up {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-24deg); }
+}
+@keyframes dance-arm-down {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(28deg); }
+}
+@keyframes dance-leg-kick {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(18deg); }
+}
+@keyframes dance-leg-plant {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-14deg); }
+}
+
 /* Film-grain texture overlay */
 .grain::before {
   content: '';
