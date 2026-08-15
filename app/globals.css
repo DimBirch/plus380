@@ -36,40 +36,42 @@ body {
   background: #e31b23;
 }
 
-/* Dancing figure — each limb rotates around its joint on its own timing so
-   the whole thing reads as dancing, not a synced robot. */
+/* Dancing figure — a real two-beat step: everything below shares the same
+   duration and the same 0% / 50% / 100% phase points, so the whole body
+   switches pose in unison (point right, point left) instead of every limb
+   flailing on its own clock. A little hop lands on each transition. */
 @keyframes dance-bounce {
-  0%, 100% { transform: translateY(0); }
-  20% { transform: translateY(-34px); }
-  45% { transform: translateY(8px); }
-  70% { transform: translateY(-24px); }
-  85% { transform: translateY(4px); }
+  0%, 50%, 100% { transform: translateY(0); }
+  25%, 75% { transform: translateY(-20px); }
 }
+@keyframes dance-torso {
+  0% { transform: rotate(-7deg); }
+  50% { transform: rotate(7deg); }
+  100% { transform: rotate(-7deg); }
+}
+/* figure's right arm: points up when leaning left, drops when leaning right */
 @keyframes dance-arm-up {
-  0%, 100% { transform: rotate(0deg); }
-  20% { transform: rotate(-55deg); }
-  45% { transform: rotate(15deg); }
-  70% { transform: rotate(-70deg); }
-  90% { transform: rotate(-10deg); }
+  0% { transform: rotate(-15deg); }
+  50% { transform: rotate(70deg); }
+  100% { transform: rotate(-15deg); }
 }
+/* figure's left arm: mirrors the right arm, half a beat later */
 @keyframes dance-arm-down {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(65deg); }
-  50% { transform: rotate(-20deg); }
-  75% { transform: rotate(50deg); }
-  90% { transform: rotate(0deg); }
+  0% { transform: rotate(-70deg); }
+  50% { transform: rotate(15deg); }
+  100% { transform: rotate(-70deg); }
 }
+/* right leg: kicks out when leaning left, plants when leaning right */
 @keyframes dance-leg-kick {
-  0%, 100% { transform: rotate(0deg); }
-  30% { transform: rotate(42deg); }
-  55% { transform: rotate(-15deg); }
-  80% { transform: rotate(30deg); }
+  0% { transform: rotate(26deg); }
+  50% { transform: rotate(-10deg); }
+  100% { transform: rotate(26deg); }
 }
+/* left leg: mirrors the right leg */
 @keyframes dance-leg-plant {
-  0%, 100% { transform: rotate(0deg); }
-  35% { transform: rotate(-35deg); }
-  60% { transform: rotate(10deg); }
-  85% { transform: rotate(-28deg); }
+  0% { transform: rotate(-10deg); }
+  50% { transform: rotate(26deg); }
+  100% { transform: rotate(-10deg); }
 }
 
 /* Film-grain texture overlay */
