@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { ArrowDown } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import type { Locale } from '@/lib/i18n/config';
+import DancingFigure from './DancingFigure';
+
 export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink-950 pt-24">
@@ -9,6 +11,11 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
       <div className="absolute inset-0 bg-mesh-glow" />
       <div className="absolute -right-32 top-1/3 h-[36rem] w-[36rem] rounded-full border border-white/[0.06]" />
       <div className="absolute -right-32 top-1/3 h-[26rem] w-[26rem] translate-x-10 translate-y-10 rounded-full border border-red-500/20 animate-spin-slow" />
+      <DancingFigure
+        className="absolute -right-6 bottom-0 h-[85%] sm:right-8 lg:right-20"
+        color="#e31b23"
+        opacity={0.14}
+      />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="max-w-4xl">
