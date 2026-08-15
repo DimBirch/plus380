@@ -40,25 +40,36 @@ body {
    the whole thing reads as dancing, not a synced robot. */
 @keyframes dance-bounce {
   0%, 100% { transform: translateY(0); }
-  25% { transform: translateY(-16px); }
-  50% { transform: translateY(2px); }
-  75% { transform: translateY(-9px); }
+  20% { transform: translateY(-34px); }
+  45% { transform: translateY(8px); }
+  70% { transform: translateY(-24px); }
+  85% { transform: translateY(4px); }
 }
 @keyframes dance-arm-up {
   0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(-24deg); }
+  20% { transform: rotate(-55deg); }
+  45% { transform: rotate(15deg); }
+  70% { transform: rotate(-70deg); }
+  90% { transform: rotate(-10deg); }
 }
 @keyframes dance-arm-down {
   0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(28deg); }
+  25% { transform: rotate(65deg); }
+  50% { transform: rotate(-20deg); }
+  75% { transform: rotate(50deg); }
+  90% { transform: rotate(0deg); }
 }
 @keyframes dance-leg-kick {
   0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(18deg); }
+  30% { transform: rotate(42deg); }
+  55% { transform: rotate(-15deg); }
+  80% { transform: rotate(30deg); }
 }
 @keyframes dance-leg-plant {
   0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(-14deg); }
+  35% { transform: rotate(-35deg); }
+  60% { transform: rotate(10deg); }
+  85% { transform: rotate(-28deg); }
 }
 
 /* Film-grain texture overlay */

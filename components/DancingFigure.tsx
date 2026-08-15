@@ -24,7 +24,7 @@ export default function DancingFigure({
         strokeLinecap="round"
         strokeLinejoin="round"
         style={{
-          animation: 'dance-bounce 1.1s ease-in-out infinite',
+          animation: 'dance-bounce 0.6s ease-in-out infinite',
           transformBox: 'fill-box',
         }}
       >
@@ -33,19 +33,19 @@ export default function DancingFigure({
         {/* spine */}
         <path d="M152,78 C146,120 140,160 146,206" />
         {/* raised arm — rotates around the shoulder */}
-        <g style={{ transformOrigin: '150px 100px', animation: 'dance-arm-up 0.9s ease-in-out infinite' }}>
+        <g style={{ transformOrigin: '150px 100px', animation: 'dance-arm-up 0.5s ease-in-out infinite' }}>
           <path d="M150,100 L88,58 L46,14" />
         </g>
         {/* lower arm — rotates around the shoulder, own timing */}
-        <g style={{ transformOrigin: '150px 112px', animation: 'dance-arm-down 1.15s ease-in-out infinite' }}>
+        <g style={{ transformOrigin: '150px 112px', animation: 'dance-arm-down 0.62s ease-in-out infinite' }}>
           <path d="M150,112 L214,140 L256,96" />
         </g>
         {/* kicked-out leg — rotates around the hip */}
-        <g style={{ transformOrigin: '146px 206px', animation: 'dance-leg-kick 0.85s ease-in-out infinite' }}>
+        <g style={{ transformOrigin: '146px 206px', animation: 'dance-leg-kick 0.48s ease-in-out infinite' }}>
           <path d="M146,206 L92,272 L112,360" />
         </g>
         {/* planted leg — rotates around the hip, own timing */}
-        <g style={{ transformOrigin: '146px 206px', animation: 'dance-leg-plant 1.05s ease-in-out infinite' }}>
+        <g style={{ transformOrigin: '146px 206px', animation: 'dance-leg-plant 0.56s ease-in-out infinite' }}>
           <path d="M146,206 L192,268 L204,368" />
         </g>
       </g>
