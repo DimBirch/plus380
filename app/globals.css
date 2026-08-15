@@ -2,8 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme tokens. :root holds the LIGHT palette (the site's default);
+   [data-theme="dark"] overrides them. Every ink, bone and white utility
+   class in the app reads these variables (see tailwind.config.ts), so
+   components never need a separate dark variant — the same class just
+   repaints. */
 :root {
+  color-scheme: light;
+  --ink-950: 252 252 253;
+  --ink-900: 245 245 247;
+  --ink-800: 237 238 241;
+  --ink-700: 226 227 232;
+  --ink-600: 211 212 219;
+  --ink-500: 190 192 201;
+  --bone-50: 12 12 16;
+  --bone-100: 32 33 39;
+  --bone-300: 76 78 90;
+  --bone-400: 108 110 124;
+  --bone-500: 138 140 154;
+  --overlay-rgb: 10 10 16;
+}
+
+:root[data-theme='dark'] {
   color-scheme: dark;
+  --ink-950: 5 5 8;
+  --ink-900: 10 10 16;
+  --ink-800: 15 15 24;
+  --ink-700: 22 22 31;
+  --ink-600: 30 30 42;
+  --ink-500: 42 42 56;
+  --bone-50: 247 247 249;
+  --bone-100: 236 238 242;
+  --bone-300: 196 198 209;
+  --bone-400: 154 156 170;
+  --bone-500: 113 115 138;
+  --overlay-rgb: 255 255 255;
 }
 
 html {
@@ -11,13 +44,13 @@ html {
 }
 
 body {
-  background-color: #050508;
-  color: #f7f7f9;
+  background-color: rgb(var(--ink-950));
+  color: rgb(var(--bone-50));
 }
 
 ::selection {
   background: #e31b23;
-  color: #050508;
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar {
@@ -25,12 +58,12 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #050508;
+  background: rgb(var(--ink-950));
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a38;
+  background: rgb(var(--ink-500));
   border-radius: 999px;
-  border: 2px solid #050508;
+  border: 2px solid rgb(var(--ink-950));
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #e31b23;
@@ -110,7 +143,7 @@ body {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-red-500 px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-bone-50 transition-all duration-300 hover:bg-red-400 hover:shadow-[0_0_32px_-4px_rgba(227,27,35,0.8)];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-red-500 px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#ffffff] transition-all duration-300 hover:bg-red-400 hover:shadow-[0_0_32px_-4px_rgba(227,27,35,0.8)];
   }
 
   .btn-secondary {

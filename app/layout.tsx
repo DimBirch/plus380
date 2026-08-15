@@ -50,13 +50,26 @@ export const metadata: Metadata = {
   },
 };
 
+// Runs before paint so a returning dark-mode visitor never sees a light
+// flash. The site defaults to light (no attribute needed for that case).
+const themeInitScript = `
+  try {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  } catch (e) {}
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
       className={`${display.variable} ${logo.variable} ${body.variable} ${mono.variable}`}
     >
-      <body className="grain min-h-screen bg-ink-950 font-body antialiased">{children}</body>
+      <body className="grain min-h-screen bg-ink-950 font-body antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {children}
+      </body>
     </html>
   );
 }

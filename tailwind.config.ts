@@ -10,21 +10,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Theme-aware: these read CSS variables defined in globals.css
+        // (:root = light, [data-theme='dark'] = dark), so every existing
+        // ink-*/bone-* class automatically repaints when the theme toggles.
         ink: {
-          950: '#050508',
-          900: '#0a0a10',
-          800: '#0f0f18',
-          700: '#16161f',
-          600: '#1e1e2a',
-          500: '#2a2a38',
+          950: 'rgb(var(--ink-950) / <alpha-value>)',
+          900: 'rgb(var(--ink-900) / <alpha-value>)',
+          800: 'rgb(var(--ink-800) / <alpha-value>)',
+          700: 'rgb(var(--ink-700) / <alpha-value>)',
+          600: 'rgb(var(--ink-600) / <alpha-value>)',
+          500: 'rgb(var(--ink-500) / <alpha-value>)',
         },
         bone: {
-          50: '#f7f7f9',
-          100: '#eceef2',
-          300: '#c4c6d1',
-          400: '#9a9caa',
-          500: '#71738a',
+          50: 'rgb(var(--bone-50) / <alpha-value>)',
+          100: 'rgb(var(--bone-100) / <alpha-value>)',
+          300: 'rgb(var(--bone-300) / <alpha-value>)',
+          400: 'rgb(var(--bone-400) / <alpha-value>)',
+          500: 'rgb(var(--bone-500) / <alpha-value>)',
         },
+        // Every `border-white/10`, `bg-white/[0.03]` etc. across the app is a
+        // "faint overlay on the base surface" — flip it dark-on-light in
+        // light mode instead of white-on-dark, via the same variable trick.
+        white: 'rgb(var(--overlay-rgb) / <alpha-value>)',
         red: {
           300: '#ff9d9f',
           400: '#ff4d51',

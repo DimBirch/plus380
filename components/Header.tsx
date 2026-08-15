@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
 import type { Locale } from '@/lib/i18n/config';
 import Logo from './Logo';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const pathname = usePathname();
@@ -55,6 +56,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
+          <ThemeToggle />
           <Link
             href={altHref}
             className="rounded-full border border-white/15 px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
@@ -66,13 +68,16 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
           </Link>
         </div>
 
-        <button
-          aria-label="Menu"
-          onClick={() => setOpen((v) => !v)}
-          className="rounded-full border border-white/15 p-2 text-bone-50 md:hidden"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button
+            aria-label="Menu"
+            onClick={() => setOpen((v) => !v)}
+            className="rounded-full border border-white/15 p-2 text-bone-50"
+          >
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
 
       {open && (
