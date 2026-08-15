@@ -73,6 +73,16 @@ body {
   50% { transform: rotate(26deg); }
   100% { transform: rotate(-10deg); }
 }
+/* Periodic flourish wrapping the whole figure: dances normally most of the
+   time, then spins a full turn with a big jump, and goes back to dancing.
+   360deg == 0deg visually, so the loop restart never snaps. */
+@keyframes dance-flourish {
+  0%, 78% { transform: rotate(0deg) translateY(0); }
+  85% { transform: rotate(180deg) translateY(-60px); }
+  92% { transform: rotate(360deg) translateY(-14px); }
+  96% { transform: rotate(360deg) translateY(8px); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
 
 /* Film-grain texture overlay */
 .grain::before {

@@ -19,34 +19,43 @@ export default function DancingFigure({
       className={`pointer-events-none ${className}`}
       style={{ opacity }}
     >
+      {/* every few beats: spin a full turn with a big jump, then back to dancing */}
       <g
-        fill="none"
-        stroke={color}
-        strokeWidth={22}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        style={{ animation: `dance-bounce ${beat} ease-in-out infinite`, transformBox: 'fill-box' }}
+        style={{
+          transformOrigin: '150px 210px',
+          transformBox: 'fill-box',
+          animation: 'dance-flourish 4.5s ease-in-out infinite',
+        }}
       >
-        {/* torso (head + spine + both arms) leans left/right from the hip */}
-        <g style={{ transformOrigin: '146px 206px', animation: `dance-torso ${beat} ease-in-out infinite` }}>
-          <circle cx="152" cy="46" r="30" />
-          <path d="M152,78 C146,120 140,160 146,206" />
-          {/* right arm — points up on the opposite beat from the lean */}
-          <g style={{ transformOrigin: '150px 100px', animation: `dance-arm-up ${beat} ease-in-out infinite` }}>
-            <path d="M150,100 L95,90 L70,30" />
+        <g
+          fill="none"
+          stroke={color}
+          strokeWidth={22}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ animation: `dance-bounce ${beat} ease-in-out infinite`, transformBox: 'fill-box' }}
+        >
+          {/* torso (head + spine + both arms) leans left/right from the hip */}
+          <g style={{ transformOrigin: '146px 206px', animation: `dance-torso ${beat} ease-in-out infinite` }}>
+            <circle cx="152" cy="46" r="30" />
+            <path d="M152,78 C146,120 140,160 146,206" />
+            {/* right arm — points up on the opposite beat from the lean */}
+            <g style={{ transformOrigin: '150px 100px', animation: `dance-arm-up ${beat} ease-in-out infinite` }}>
+              <path d="M150,100 L95,90 L70,30" />
+            </g>
+            {/* left arm — mirrors the right arm */}
+            <g style={{ transformOrigin: '150px 112px', animation: `dance-arm-down ${beat} ease-in-out infinite` }}>
+              <path d="M150,112 L205,105 L225,50" />
+            </g>
           </g>
-          {/* left arm — mirrors the right arm */}
-          <g style={{ transformOrigin: '150px 112px', animation: `dance-arm-down ${beat} ease-in-out infinite` }}>
-            <path d="M150,112 L205,105 L225,50" />
+          {/* right leg — kicks out opposite the torso lean */}
+          <g style={{ transformOrigin: '146px 206px', animation: `dance-leg-kick ${beat} ease-in-out infinite` }}>
+            <path d="M146,206 L92,272 L112,360" />
           </g>
-        </g>
-        {/* right leg — kicks out opposite the torso lean */}
-        <g style={{ transformOrigin: '146px 206px', animation: `dance-leg-kick ${beat} ease-in-out infinite` }}>
-          <path d="M146,206 L92,272 L112,360" />
-        </g>
-        {/* left leg — mirrors the right leg */}
-        <g style={{ transformOrigin: '146px 206px', animation: `dance-leg-plant ${beat} ease-in-out infinite` }}>
-          <path d="M146,206 L192,268 L204,368" />
+          {/* left leg — mirrors the right leg */}
+          <g style={{ transformOrigin: '146px 206px', animation: `dance-leg-plant ${beat} ease-in-out infinite` }}>
+            <path d="M146,206 L192,268 L204,368" />
+          </g>
         </g>
       </g>
     </svg>
