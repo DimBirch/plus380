@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import { ArrowDown } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
-import type { Locale } from '@/lib/i18n/config';
 import DancingFigure from './DancingFigure';
 
-export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+export default function Hero({ dict }: { dict: Dictionary }) {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink-950 pt-24">
       {/* Background layers */}
@@ -38,10 +37,10 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link href={`/${locale}/events`} className="btn-primary">
+            <Link href="/events" className="btn-primary">
               {dict.hero.ctaPrimary}
             </Link>
-            <Link href={`/${locale}#contact`} className="btn-secondary">
+            <Link href="/#contact" className="btn-secondary">
               {dict.hero.ctaSecondary}
             </Link>
           </div>

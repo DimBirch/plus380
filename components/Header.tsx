@@ -1,16 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
-import type { Locale } from '@/lib/i18n/config';
 import Logo from './Logo';
 import ThemeToggle from './ThemeToggle';
 
-export default function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
-  const pathname = usePathname();
+export default function Header({ dict }: { dict: Dictionary }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -21,14 +18,10 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const rest = pathname.split('/').slice(2).join('/');
-  const altLocale: Locale = locale === 'uk' ? 'en' : 'uk';
-  const altHref = `/${altLocale}${rest ? `/${rest}` : ''}`;
-
   const links = [
-    { href: `/${locale}#about`, label: dict.nav.about },
-    { href: `/${locale}/events`, label: dict.nav.events },
-    { href: `/${locale}#contact`, label: dict.nav.contact },
+    { href: '/#about', label: dict.nav.about },
+    { href: '/events', label: dict.nav.events },
+    { href: '/#contact', label: dict.nav.contact },
   ];
 
   return (
@@ -38,7 +31,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-8">
-        <Link href={`/${locale}`} className="group flex items-center gap-2">
+        <Link href="/" className="group flex items-center gap-2">
           <Logo size="sm" />
           <span className="hidden h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_10px_2px_rgba(227,27,35,0.9)] group-hover:animate-pulseGlow sm:block" />
         </Link>
@@ -57,13 +50,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
 
         <div className="hidden items-center gap-4 md:flex">
           <ThemeToggle />
-          <Link
-            href={altHref}
-            className="rounded-full border border-white/15 px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
-          >
-            {locale === 'uk' ? 'EN' : 'UA'}
-          </Link>
-          <Link href={`/${locale}#contact`} className="btn-primary !px-5 !py-2.5">
+          <Link href="/#contact" className="btn-primary !px-5 !py-2.5">
             {dict.nav.bookUs}
           </Link>
         </div>
@@ -94,13 +81,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
               </Link>
             ))}
             <div className="flex items-center gap-3 pt-2">
-              <Link
-                href={altHref}
-                className="rounded-full border border-white/15 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-bone-300"
-              >
-                {locale === 'uk' ? 'EN' : 'UA'}
-              </Link>
-              <Link href={`/${locale}#contact`} className="btn-primary !px-5 !py-2.5">
+              <Link href="/#contact" className="btn-primary !px-5 !py-2.5">
                 {dict.nav.bookUs}
               </Link>
             </div>

@@ -3,18 +3,15 @@
 import { useMemo, useState } from 'react';
 import type { EventCategory, EventRecord } from '@/lib/types';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
-import type { Locale } from '@/lib/i18n/config';
 import EventCard from './EventCard';
 
 type Tab = 'all' | 'upcoming' | 'past';
 
 export default function EventsExplorer({
   events,
-  locale,
   dict,
 }: {
   events: EventRecord[];
-  locale: Locale;
   dict: Dictionary;
 }) {
   const [tab, setTab] = useState<Tab>('upcoming');
@@ -97,7 +94,7 @@ export default function EventsExplorer({
       ) : (
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((event, i) => (
-            <EventCard key={event.id} event={event} locale={locale} dict={dict} priority={i < 3} />
+            <EventCard key={event.id} event={event} dict={dict} priority={i < 3} />
           ))}
         </div>
       )}

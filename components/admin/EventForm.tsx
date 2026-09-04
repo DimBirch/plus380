@@ -32,12 +32,10 @@ export default function EventForm({ event }: { event?: EventRecord }) {
   const router = useRouter();
   const isEdit = Boolean(event);
 
-  const [titleUk, setTitleUk] = useState(event?.title_uk ?? '');
-  const [titleEn, setTitleEn] = useState(event?.title_en ?? '');
+  const [title, setTitle] = useState(event?.title_en ?? '');
   const [slug, setSlug] = useState(event?.slug ?? '');
   const [slugTouched, setSlugTouched] = useState(Boolean(event?.slug));
-  const [descriptionUk, setDescriptionUk] = useState(event?.description_uk ?? '');
-  const [descriptionEn, setDescriptionEn] = useState(event?.description_en ?? '');
+  const [description, setDescription] = useState(event?.description_en ?? '');
   const [eventDate, setEventDate] = useState(
     event ? toDatetimeLocal(event.event_date) : ''
   );
@@ -103,11 +101,14 @@ export default function EventForm({ event }: { event?: EventRecord }) {
 
     const supabase = createClient();
     const payload = {
-      slug: slug || slugify(titleEn || titleUk),
-      title_uk: titleUk,
-      title_en: titleEn,
-      description_uk: descriptionUk || null,
-      description_en: descriptionEn || null,
+      slug: slug || slugify(title),
+      // The public site is English-only, but the database still has
+      // separate uk/en columns (kept NOT NULL to avoid a migration) — mirror
+      // the same value into both so old constraints stay satisfied.
+      title_uk: title,
+      title_en: title,
+      description_uk: description || null,
+      description_en: description || null,
       event_date: new Date(eventDate).toISOString(),
       venue: venue || null,
       city: city || null,
@@ -147,28 +148,17 @@ export default function EventForm({ event }: { event?: EventRecord }) {
         </p>
       )}
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label className={labelClass}>{dict.fields.titleUk}</label>
-          <input
-            required
-            value={titleUk}
-            onChange={(e) => {
-              setTitleUk(e.target.value);
-              if (!slugTouched) setSlug(slugify(e.target.value));
-            }}
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className={labelClass}>{dict.fields.titleEn}</label>
-          <input
-            required
-            value={titleEn}
-            onChange={(e) => setTitleEn(e.target.value)}
-            className={inputClass}
-          />
-        </div>
+      <div>
+        <label className={labelClass}>{dict.fields.title}</label>
+        <input
+          required
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+            if (!slugTouched) setSlug(slugify(e.target.value));
+          }}
+          className={inputClass}
+        />
       </div>
 
       <div>
@@ -184,25 +174,14 @@ export default function EventForm({ event }: { event?: EventRecord }) {
         />
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label className={labelClass}>{dict.fields.descriptionUk}</label>
-          <textarea
-            value={descriptionUk}
-            onChange={(e) => setDescriptionUk(e.target.value)}
-            rows={4}
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className={labelClass}>{dict.fields.descriptionEn}</label>
-          <textarea
-            value={descriptionEn}
-            onChange={(e) => setDescriptionEn(e.target.value)}
-            rows={4}
-            className={inputClass}
-          />
-        </div>
+      <div>
+        <label className={labelClass}>{dict.fields.description}</label>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          rows={4}
+          className={inputClass}
+        />
       </div>
 
       <div className="grid gap-5 sm:grid-cols-3">

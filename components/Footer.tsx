@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import { Instagram, Facebook, Mail } from 'lucide-react';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
-import type { Locale } from '@/lib/i18n/config';
 import Logo from './Logo';
 
-export default function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+export default function Footer({ dict }: { dict: Dictionary }) {
   return (
     <footer className="relative border-t border-white/10 bg-ink-950">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8">
@@ -43,13 +42,13 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
             <div>
               <p className="eyebrow mb-4">{dict.nav.home}</p>
               <div className="flex flex-col gap-2.5 font-body text-sm text-bone-400">
-                <Link href={`/${locale}#about`} className="hover:text-bone-50">
+                <Link href="/#about" className="hover:text-bone-50">
                   {dict.nav.about}
                 </Link>
-                <Link href={`/${locale}/events`} className="hover:text-bone-50">
+                <Link href="/events" className="hover:text-bone-50">
                   {dict.nav.events}
                 </Link>
-                <Link href={`/${locale}#contact`} className="hover:text-bone-50">
+                <Link href="/#contact" className="hover:text-bone-50">
                   {dict.nav.contact}
                 </Link>
               </div>

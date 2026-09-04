@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { Unbounded, Anton, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-// Headings/body copy — needs Cyrillic for the UA locale.
+// Headings/body copy. The public site is English-only, but the admin
+// panel's UI is Ukrainian, so these still need Cyrillic subsets.
 const display = Unbounded({
   subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'],
   weight: ['600', '700', '800', '900'],
@@ -33,12 +34,13 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'THREEEIGHTY — Epic Event Experience',
+  title: 'THREEEIGHTY — Event Promotion Agency. Tours, Festivals, Concerts',
   description: 'The whole world.',
   openGraph: {
-    title: 'THREEEIGHTY — Epic Event Experience',
+    title: 'THREEEIGHTY — Event Promotion Agency. Tours, Festivals, Concerts',
     description: 'The whole world.',
     siteName: 'THREEEIGHTY',
+    locale: 'en_US',
   },
   icons: {
     icon: [

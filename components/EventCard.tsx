@@ -1,33 +1,28 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { format } from 'date-fns';
-import { uk as ukLocale, enUS } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 import { MapPin, ArrowUpRight } from 'lucide-react';
 import type { EventRecord } from '@/lib/types';
 import type { Dictionary } from '@/lib/i18n/get-dictionary';
-import type { Locale } from '@/lib/i18n/config';
 import Logo from './Logo';
 
 export default function EventCard({
   event,
-  locale,
   dict,
   priority = false,
 }: {
   event: EventRecord;
-  locale: Locale;
   dict: Dictionary;
   priority?: boolean;
 }) {
-  const title = locale === 'uk' ? event.title_uk : event.title_en;
+  const title = event.title_en;
   const isPast = new Date(event.event_date).getTime() < Date.now();
-  const dateStr = format(new Date(event.event_date), 'd MMM yyyy', {
-    locale: locale === 'uk' ? ukLocale : enUS,
-  });
+  const dateStr = format(new Date(event.event_date), 'd MMM yyyy', { locale: enUS });
 
   return (
     <Link
-      href={`/${locale}/events/${event.slug}`}
+      href={`/events/${event.slug}`}
       className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-800 transition-all duration-300 hover:-translate-y-1 hover:border-red-500/50 hover:shadow-[0_0_40px_-12px_rgba(227,27,35,0.65)]"
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-700">

@@ -144,10 +144,8 @@ const en: Dictionary = {
     delete: 'Delete',
     confirmDelete: 'Delete this event permanently?',
     fields: {
-      titleUk: 'Title (UA)',
-      titleEn: 'Title (EN)',
-      descriptionUk: 'Description (UA)',
-      descriptionEn: 'Description (EN)',
+      title: 'Title',
+      description: 'Description',
       date: 'Date & time',
       venue: 'Venue',
       city: 'City',

@@ -4,11 +4,13 @@ Everything a new agent/session needs to pick this up with zero prior context.
 
 ## 1. What this is
 
-A bilingual (EN/UK) marketing website + self-service admin panel for **THREEEIGHTY**
-("Epic Event Experience"), an international event-promotion agency (EDM festivals,
-concerts, tours, corporate events, birthdays, team-building). Built with Next.js 14 App
-Router, Tailwind, Supabase, deployed on Vercel. Domain is not yet connected — the site is
-still on `plus380.vercel.app`.
+An **English-only** marketing website (the client had a bilingual EN/UK version earlier
+in the project, then explicitly asked to drop Ukrainian from the public site — see §11)
++ a Ukrainian-language self-service admin panel, for **THREEEIGHTY** ("Epic Event
+Experience"), an international event-promotion agency (EDM festivals, concerts, tours,
+corporate events, birthdays, team-building). Built with Next.js 14 App Router, Tailwind,
+Supabase, deployed on Vercel. Domain is not yet connected — the site is still on
+`plus380.vercel.app`.
 
 ## 2. Where everything lives
 
@@ -16,7 +18,7 @@ still on `plus380.vercel.app`.
 |---|---|
 | Project code | `/Users/dima/plus380` (local machine) |
 | GitHub repo | https://github.com/DimBirch/plus380 (public, owner: DimBirch) |
-| Live site | https://plus380.vercel.app (defaults to `/en`) |
+| Live site | https://plus380.vercel.app (single English site, root `/`; events at `/events`, `/events/[slug]`) |
 | Vercel project | org `team_HwBqI41amOVdLvjLT6EU4kvC`, project `plus380` (id `prj_C1lziMNiM4QsrbdoTf3mw5DDMCOD`) — see `.vercel/project.json` |
 | Supabase project | https://qekrcjzdfhxlkgkvztdl.supabase.co |
 | Admin panel | https://plus380.vercel.app/admin/login — **not linked from any public page on purpose** (user asked for it hidden). Login is an email/password the user created directly in Supabase Authentication — the agent does not have it. |
@@ -27,20 +29,31 @@ still on `plus380.vercel.app`.
 - Next.js 14.2.35 (App Router), TypeScript, Tailwind CSS
 - Supabase: Postgres (`events` table), Auth (admin login), Storage (`event-images` bucket)
 - Deployed on Vercel (Hobby plan)
-- i18n: hand-rolled dictionary system (no next-intl) — `app/[locale]/`, locales `uk`/`en`, **default locale is `en`** (`lib/i18n/config.ts`)
+- i18n: the public site is plain English now, no locale routing — pages live directly under `app/(site)/` (a route group, so no URL segment) and import `lib/i18n/dictionaries/en.ts` directly for copy. The admin panel (`app/admin/`) is separately hardcoded to Ukrainian via `lib/i18n/dictionaries/uk.ts` — that's intentional, not a bug (see §11). `lib/i18n/dictionary-type.ts` still defines the shared `Dictionary` TS type both files satisfy.
 - Fonts (`app/layout.tsx`, via `next/font/google`): **Unbounded** (headings — loaded with `cyrillic`/`cyrillic-ext` subsets, required for the UA copy), **Anton** (logo wordmark only, Latin-only is fine since the brand name is never translated), **Inter** (body), **JetBrains Mono** (labels/mono)
 
 ## 4. Brand
 
 - Name: **THREEEIGHTY**, always styled as `THR` + `EEE` (in brand red) + `IGHTY` — see `components/Logo.tsx`. There's also a compact `variant="mark"` (just "380") used as an image placeholder.
-- Tagline / credo: **"Epic Event Experience"** (kept in English in both locales, it's part of the lockup)
+- Tagline / credo: **"Epic Event Experience"** (part of the lockup)
 - Colors: strict red/black/white system. Brand red is `#e31b23` (Tailwind `red-500` in `tailwind.config.ts`, scale 300–700). No other accent colors — a previous iteration used violet/cyan/pink and it was deliberately replaced with red-only.
 - The site now has a **light/dark theme toggle** (button in the header, sun/moon icon, `components/ThemeToggle.tsx`) and **defaults to light** for first-time visitors. Implementation: CSS variables in `app/globals.css` under `:root` (light) and `:root[data-theme="dark"]` (dark) — the `ink-*`, `bone-*` and `white` Tailwind color tokens all read those variables (see `tailwind.config.ts`), so components never needed individual `dark:` classes. Preference persists via `localStorage.theme` (`'dark'` or `'light'`); a blocking inline script in `app/layout.tsx` (first child of `<body>`) applies `data-theme="dark"` before paint if needed, so there's no flash.
 - A decorative **animated dancing-figure SVG** (Keith Haring–style stick figure, `components/DancingFigure.tsx`) sits in the Hero background. It does a choreographed two-beat dance step (all limbs share one timing so it reads as an actual dance, not random flailing) plus a periodic vertical spin+jump flourish (`dance-*` keyframes in `app/globals.css`). This went through many rounds of user feedback — if asked to touch it again, read the keyframes/component together, they're tightly coupled.
 
 ## 5. Content model / admin panel
 
-- `events` table (see `supabase/schema.sql` for the full schema + RLS policies): bilingual title/description, date, venue/city/country, category, cover image, gallery images array, ticket URL, attendee count, `featured` flag. Upcoming vs. past is computed from `event_date`, not stored.
+- `events` table (see `supabase/schema.sql` for the full schema + RLS policies) still has
+  separate `title_uk`/`title_en` and `description_uk`/`description_en` columns (both
+  `NOT NULL`) from when the site was bilingual, plus date, venue/city/country, category,
+  cover image, gallery images array, ticket URL, attendee count, `featured` flag.
+  Upcoming vs. past is computed from `event_date`, not stored.
+- The admin form (`components/admin/EventForm.tsx`) now shows a **single** Title /
+  Description field (the public site is English-only) and writes that same value into
+  **both** the `_uk` and `_en` columns on save, purely to satisfy the `NOT NULL`
+  constraint without a migration. The public site only ever reads `_en`. If you want to
+  actually drop the `_uk` columns, that needs a Supabase SQL migration (safe to do — no
+  real events exist yet, see below) plus updating `lib/types.ts` and every place that
+  reads `event.title_en`/`event.description_en`.
 - Admin panel (`app/admin/*`) lets the client log in and add/edit/delete events with image upload straight to Supabase Storage — no code changes needed for routine content updates.
 - **No real events exist yet** — the client hasn't added any through the admin panel. `lib/data/sample-events.ts` provides fallback demo content only when Supabase env vars are absent (local preview before Supabase was wired up); it's dead code now that Supabase is connected, safe to delete later if you want to tidy up.
 
@@ -110,8 +123,8 @@ Beyond that, this has been an open-ended iterative design session — the user h
 asking for visual/content tweaks one at a time (color scheme, fonts, animations, copy,
 theme toggle, etc.) and approving/adjusting each live on the deployed site. Expect more
 of the same rather than a fixed spec. Always: make the change → clean build → visually
-verify in the Browser pane (both `/en` and `/uk`, and both themes if the change touches
-anything visual) → commit → push → `vercel deploy --prod --yes` → re-check the live URL.
+verify in the Browser pane (both light/dark themes if the change touches anything
+visual) → commit → push → `vercel deploy --prod --yes` → re-check the live URL.
 
 ## 10. Notable design/history context (so you don't undo things on purpose)
 
@@ -128,7 +141,34 @@ anything visual) → commit → push → `vercel deploy --prod --yes` → re-che
   soon). Markets: US, Canada, EU, UK, Turkey, Balkans, Gulf states (not "Arab
   countries" — that phrasing was explicitly changed).
 
-## 11. Quick command reference
+## 11. Public site went English-only (most recent change)
+
+The site originally had a full UK/EN bilingual setup with a language switcher
+(`app/[locale]/` dynamic segment, `lib/i18n/config.ts` with `locales`/`defaultLocale`,
+`getDictionary(locale)`). The user asked to remove Ukrainian from the public site
+entirely. What changed:
+
+- `app/[locale]/*` was deleted and rebuilt as `app/(site)/*` (a route group — no URL
+  segment), so pages are now at `/`, `/events`, `/events/[slug]` with no language
+  prefix and no switcher.
+- Every public component (`Header`, `Footer`, `Hero`, `FeaturedEvents`, `EventCard`,
+  `EventsExplorer`, the event pages) had its `locale` prop removed; they now always
+  render `lib/i18n/dictionaries/en.ts` content, passed down as `dict` exactly like
+  before (so component internals barely changed — only how `dict` gets sourced at the
+  top of the tree).
+- `lib/i18n/config.ts` and the locale-aware `getDictionary()` were deleted;
+  `lib/i18n/get-dictionary.ts` now just re-exports the `Dictionary` type.
+- **The admin panel was deliberately left in Ukrainian** (`lib/i18n/dictionaries/uk.ts`
+  is still fully used there) — the request was about the public site the visitors see,
+  not the owner's own private tool. Don't "finish the job" by translating admin to
+  English unless the user asks.
+- The admin event form was simplified from two title/description inputs (UA + EN) to
+  one, since there's only one language to fill in now — see §5 for how that maps to the
+  still-bilingual database columns.
+- Root metadata (`app/layout.tsx`) was pointed at the single English title/description
+  directly instead of being generated per-locale.
+
+## 12. Quick command reference
 
 ```bash
 cd /Users/dima/plus380

@@ -144,10 +144,8 @@ const uk: Dictionary = {
     delete: 'Видалити',
     confirmDelete: 'Видалити цю подію без можливості відновлення?',
     fields: {
-      titleUk: 'Назва (UA)',
-      titleEn: 'Назва (EN)',
-      descriptionUk: 'Опис (UA)',
-      descriptionEn: 'Опис (EN)',
+      title: 'Назва',
+      description: 'Опис',
       date: 'Дата й час',
       venue: 'Майданчик',
       city: 'Місто',

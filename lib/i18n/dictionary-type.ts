@@ -100,10 +100,8 @@ export interface Dictionary {
     delete: string;
     confirmDelete: string;
     fields: {
-      titleUk: string;
-      titleEn: string;
-      descriptionUk: string;
-      descriptionEn: string;
+      title: string;
+      description: string;
       date: string;
       venue: string;
       city: string;

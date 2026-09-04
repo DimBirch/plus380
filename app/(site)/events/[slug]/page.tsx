@@ -2,32 +2,23 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
-import { uk as ukLocale, enUS } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 import { ArrowLeft, ArrowUpRight, CalendarDays, MapPin, Users } from 'lucide-react';
-import { isLocale, type Locale } from '@/lib/i18n/config';
-import { getDictionary } from '@/lib/i18n/get-dictionary';
+import en from '@/lib/i18n/dictionaries/en';
 import { getEventBySlug } from '@/lib/data/events';
 import GalleryLightbox from '@/components/GalleryLightbox';
 import Logo from '@/components/Logo';
 
-export default async function EventDetailPage({
-  params,
-}: {
-  params: { locale: string; slug: string };
-}) {
-  if (!isLocale(params.locale)) notFound();
-  const locale = params.locale as Locale;
-  const dict = getDictionary(locale);
+export default async function EventDetailPage({ params }: { params: { slug: string } }) {
+  const dict = en;
   const event = await getEventBySlug(params.slug);
 
   if (!event) notFound();
 
-  const title = locale === 'uk' ? event.title_uk : event.title_en;
-  const description = locale === 'uk' ? event.description_uk : event.description_en;
+  const title = event.title_en;
+  const description = event.description_en;
   const isPast = new Date(event.event_date).getTime() < Date.now();
-  const dateStr = format(new Date(event.event_date), 'd MMMM yyyy', {
-    locale: locale === 'uk' ? ukLocale : enUS,
-  });
+  const dateStr = format(new Date(event.event_date), 'd MMMM yyyy', { locale: enUS });
 
   const infoItems = [
     { icon: CalendarDays, label: dict.gallery.dateLabel, value: dateStr },
@@ -41,7 +32,7 @@ export default async function EventDetailPage({
           {
             icon: Users,
             label: dict.gallery.attendeesLabel,
-            value: event.attendees_count.toLocaleString(locale === 'uk' ? 'uk-UA' : 'en-US'),
+            value: event.attendees_count.toLocaleString('en-US'),
           },
         ]
       : []),
@@ -51,7 +42,7 @@ export default async function EventDetailPage({
     <div className="relative min-h-screen bg-ink-950 pb-24 pt-32 sm:pt-36">
       <div className="mx-auto max-w-5xl px-6 sm:px-8">
         <Link
-          href={`/${locale}/events`}
+          href="/events"
           className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-bone-400 hover:text-red-400"
         >
           <ArrowLeft size={14} />

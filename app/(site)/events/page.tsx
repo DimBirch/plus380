@@ -1,13 +1,9 @@
-import { notFound } from 'next/navigation';
-import { isLocale, type Locale } from '@/lib/i18n/config';
-import { getDictionary } from '@/lib/i18n/get-dictionary';
+import en from '@/lib/i18n/dictionaries/en';
 import { getAllEvents } from '@/lib/data/events';
 import EventsExplorer from '@/components/EventsExplorer';
 
-export default async function EventsPage({ params }: { params: { locale: string } }) {
-  if (!isLocale(params.locale)) notFound();
-  const locale = params.locale as Locale;
-  const dict = getDictionary(locale);
+export default async function EventsPage() {
+  const dict = en;
   const events = await getAllEvents();
 
   return (
@@ -19,7 +15,7 @@ export default async function EventsPage({ params }: { params: { locale: string 
         <p className="mt-4 max-w-lg font-body text-base text-bone-400">{dict.gallery.body}</p>
 
         <div className="mt-14">
-          <EventsExplorer events={events} locale={locale} dict={dict} />
+          <EventsExplorer events={events} dict={dict} />
         </div>
       </div>
     </div>
