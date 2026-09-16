@@ -98,6 +98,10 @@ npm run dev
 Сайт відкривається за адресою **https://threeeighty.eu**, `www.threeeighty.eu`
 перенаправляє на основний домен, SSL-сертифікат видано автоматично.
 
+Технічна адреса `plus380.vercel.app` теж перенаправляє на `threeeighty.eu` (разом зі
+шляхами: `/events` → `threeeighty.eu/events`), тож робоча адреса сайту одна — це
+правильно для пошукових систем.
+
 Актуальні DNS-записи в GoDaddy (My Products → threeeighty.eu → DNS):
 
 ```

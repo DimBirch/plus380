@@ -11,8 +11,9 @@ Experience"), an international event-promotion agency (EDM festivals, concerts, 
 corporate events, birthdays, team-building). Built with Next.js 14 App Router, Tailwind,
 Supabase, deployed on Vercel. The custom domain **`threeeighty.eu` is connected** (added
 2026-09-16) — DNS lives at GoDaddy, apex points at Vercel with two A records, `www`
-308-redirects to the apex, Let's Encrypt cert issued. `plus380.vercel.app` still works
-too (not redirected).
+308-redirects to the apex, Let's Encrypt cert issued. The old
+`plus380.vercel.app` URL now **308-redirects to `threeeighty.eu`** (path-preserving), so
+there is a single canonical address.
 
 ## 2. Where everything lives
 
@@ -22,10 +23,10 @@ too (not redirected).
 | GitHub repo | https://github.com/DimBirch/plus380 (public, owner: DimBirch) |
 | Live site | **https://threeeighty.eu** (primary, single English site, root `/`; events at `/events`, `/events/[slug]`) |
 | Domain registrar | GoDaddy (`threeeighty.eu`), DNS on GoDaddy nameservers `ns23`/`ns24.domaincontrol.com` — **not** Vercel nameservers |
-| Legacy URL | https://plus380.vercel.app (still live, not redirected) |
+| Legacy URL | https://plus380.vercel.app — **308-redirects to `threeeighty.eu`** (path preserved), set on the domain in Vercel |
 | Vercel project | org `team_HwBqI41amOVdLvjLT6EU4kvC`, project `plus380` (id `prj_C1lziMNiM4QsrbdoTf3mw5DDMCOD`) — see `.vercel/project.json` |
 | Supabase project | https://qekrcjzdfhxlkgkvztdl.supabase.co |
-| Admin panel | https://plus380.vercel.app/admin/login — **not linked from any public page on purpose** (user asked for it hidden). Login is an email/password the user created directly in Supabase Authentication — the agent does not have it. |
+| Admin panel | https://threeeighty.eu/admin/login — **not linked from any public page on purpose** (user asked for it hidden). Login is an email/password the user created directly in Supabase Authentication — the agent does not have it. |
 | Contact email shown on site | hello@rel1ve.eu |
 
 ## 3. Tech stack
@@ -138,9 +139,15 @@ Gotchas discovered while doing it, worth knowing next time:
   `~/.npm` writes are blocked too.
 - `npx vercel` also needs `-Q` for the login flow; `vercel login` device flow works fine
   non-interactively (prints the `vercel.com/oauth/device?user_code=...` URL).
-- The Vercel CLI/API accepts an apex + `www` and the www→apex redirect must be set via
-  the REST API (`PATCH /v9/projects/{id}/domains/{domain}` with
-  `{"redirect":"<apex>","redirectStatusCode":308}`) — the CLI has no redirect command.
+- The Vercel CLI/API accepts an apex + `www`, and redirects must be set via the REST API
+  (`PATCH /v9/projects/{id}/domains/{domain}` with
+  `{"redirect":"<target>","redirectStatusCode":308}`) — the CLI has no redirect command.
+  This works for **any** domain on the project, including the auto-generated
+  `plus380.vercel.app`, which now redirects to `threeeighty.eu` the same way (path is
+  preserved, e.g. `/events` → `https://threeeighty.eu/events`). Preview deployment URLs
+  (`plus380-<hash>-*.vercel.app`) are unaffected.
+- The app code contains **no** hardcoded domain: `middleware.ts` builds admin redirects
+  from `request.url`, so the admin panel works on whatever host serves it.
 - Vercel may hand out **newer A records** (`216.198.79.1` / `64.29.17.1`) instead of the
   widely-documented `76.76.21.21` — always use what `vercel domains verify` prints.
 - After the GoDaddy change, propagation is uneven: Cloudflare/Quad9/OpenDNS picked it up
