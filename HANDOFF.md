@@ -9,8 +9,10 @@ in the project, then explicitly asked to drop Ukrainian from the public site —
 + a Ukrainian-language self-service admin panel, for **THREEEIGHTY** ("Epic Event
 Experience"), an international event-promotion agency (EDM festivals, concerts, tours,
 corporate events, birthdays, team-building). Built with Next.js 14 App Router, Tailwind,
-Supabase, deployed on Vercel. Domain is not yet connected — the site is still on
-`plus380.vercel.app`.
+Supabase, deployed on Vercel. The custom domain **`threeeighty.eu` is connected** (added
+2026-09-16) — DNS lives at GoDaddy, apex points at Vercel with two A records, `www`
+308-redirects to the apex, Let's Encrypt cert issued. `plus380.vercel.app` still works
+too (not redirected).
 
 ## 2. Where everything lives
 
@@ -18,7 +20,9 @@ Supabase, deployed on Vercel. Domain is not yet connected — the site is still 
 |---|---|
 | Project code | `/Users/dima/plus380` (local machine) |
 | GitHub repo | https://github.com/DimBirch/plus380 (public, owner: DimBirch) |
-| Live site | https://plus380.vercel.app (single English site, root `/`; events at `/events`, `/events/[slug]`) |
+| Live site | **https://threeeighty.eu** (primary, single English site, root `/`; events at `/events`, `/events/[slug]`) |
+| Domain registrar | GoDaddy (`threeeighty.eu`), DNS on GoDaddy nameservers `ns23`/`ns24.domaincontrol.com` — **not** Vercel nameservers |
+| Legacy URL | https://plus380.vercel.app (still live, not redirected) |
 | Vercel project | org `team_HwBqI41amOVdLvjLT6EU4kvC`, project `plus380` (id `prj_C1lziMNiM4QsrbdoTf3mw5DDMCOD`) — see `.vercel/project.json` |
 | Supabase project | https://qekrcjzdfhxlkgkvztdl.supabase.co |
 | Admin panel | https://plus380.vercel.app/admin/login — **not linked from any public page on purpose** (user asked for it hidden). Login is an email/password the user created directly in Supabase Authentication — the agent does not have it. |
@@ -110,14 +114,41 @@ Host github.com-plus380
 The repo's `origin` remote uses that alias: `git@github.com-plus380:DimBirch/plus380.git`.
 This should already work on this machine without further setup.
 
-## 9. What's left to do
+## 9. Domain connection (done) + what's left
 
-The **only explicitly outstanding task** from the user is connecting their real domain
-(bought on GoDaddy — exact domain name not yet given to the agent, ask the user) to
-this Vercel project, replacing `plus380.vercel.app`. Steps are already written out for
-the user in `README.md` §4 ("Прив'язка домену з GoDaddy"): add the domain in Vercel
-project settings → Domains, then add the A/CNAME records Vercel shows into GoDaddy's
-DNS panel for that domain.
+The domain task is **complete**: `threeeighty.eu` (bought on GoDaddy) is attached to
+this Vercel project and serving the site. Exact DNS setup in GoDaddy:
+
+```
+A      @    216.198.79.1                        (Vercel — replaces GoDaddy parking)
+A      @    64.29.17.1                          (Vercel)
+CNAME  www  c301971d666a55ee.vercel-dns-017.com (Vercel — www 308-redirects to apex)
+```
+
+⚠️ **Do not touch the MX or TXT records.** The domain runs live Google Workspace email
+(`aspmx.l.google.com` + `alt1-4.aspmx.l.google.com`), plus an SPF TXT and a
+`google-site-verification` TXT. Only ever edit the A/CNAME records above.
+
+Gotchas discovered while doing it, worth knowing next time:
+
+- The Vercel CLI could **not** refresh its token because the DSH file sandbox blocks
+  writes to `~/Library/Application Support/com.vercel.cli/`. Workaround that works:
+  `npx vercel <cmd> -Q /Users/dima/plus380/.vercel-global` — a workspace-local global
+  config dir (gitignored). Also set `npm_config_cache` to a workspace path, since
+  `~/.npm` writes are blocked too.
+- `npx vercel` also needs `-Q` for the login flow; `vercel login` device flow works fine
+  non-interactively (prints the `vercel.com/oauth/device?user_code=...` URL).
+- The Vercel CLI/API accepts an apex + `www` and the www→apex redirect must be set via
+  the REST API (`PATCH /v9/projects/{id}/domains/{domain}` with
+  `{"redirect":"<apex>","redirectStatusCode":308}`) — the CLI has no redirect command.
+- Vercel may hand out **newer A records** (`216.198.79.1` / `64.29.17.1`) instead of the
+  widely-documented `76.76.21.21` — always use what `vercel domains verify` prints.
+- After the GoDaddy change, propagation is uneven: Cloudflare/Quad9/OpenDNS picked it up
+  in minutes, **Google DNS (8.8.8.8/8.8.4.4) stayed stale for ~an hour**, and the user's
+  Fritz!Box router cached the old parking IPs, so the browser kept showing GoDaddy's
+  "Launching Soon" page. Verify with
+  `curl --resolve threeeighty.eu:443:216.198.79.1 https://threeeighty.eu` to prove the
+  Vercel side is fine before blaming the deploy.
 
 Beyond that, this has been an open-ended iterative design session — the user has been
 asking for visual/content tweaks one at a time (color scheme, fonts, animations, copy,
