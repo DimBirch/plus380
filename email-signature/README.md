@@ -1,14 +1,32 @@
 # Підпис для email — THREEEIGHTY
 
-Готовий підпис на основі логотипа **THREEEIGHTY / Epic Event Experience**.
+Готові підписи на основі логотипа **THREEEIGHTY / Epic Event Experience**.
 
 ```
 email-signature/
-  threeeighty-signature.html   ← сам підпис (відкрити у браузері, скопіювати, вставити)
+  vova-bryhynets.html          ← готовий підпис: VOVA BRYHYNETS, CEO
+  dima-birchenko.html          ← готовий підпис: DIMA BIRCHENKO, CFO
+  threeeighty-signature.html   ← порожній шаблон із заглушками (для нових людей)
   README.md                    ← ця інструкція
 public/email/
-  threeeighty-logo.png         ← картинка логотипа, яку підпис завантажує
+  threeeighty-logo.png         ← картинка логотипа, яку підписи завантажують
 ```
+
+## Готові підписи
+
+| Файл | Хто | Що всередині |
+|---|---|---|
+| `vova-bryhynets.html` | VOVA BRYHYNETS | CEO · vb@threeeighty.eu · +31 6 4731 4115 |
+| `dima-birchenko.html` | DIMA BIRCHENKO | CFO · db@threeeighty.eu · +385 97 611 6162 |
+
+**Подвійний клік** по файлу відкриває його в браузері — далі виділити, скопіювати,
+вставити (кроки в розділі 1). Заглушок у цих файлах немає, копіювати можна одразу.
+
+Телефони в тексті показані з пробілами (легше читати), а в посиланні `tel:`
+записані чистими цифрами — так номер набирається з мобільного в один клік.
+
+**Додати ще одну людину:** скопіюйте `threeeighty-signature.html`, замініть
+чотири заглушки — і все (див. розділ 4).
 
 ---
 
