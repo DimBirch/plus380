@@ -4,6 +4,7 @@
 
 ```
 email-signature/
+  team.html                    ← «від команди»: рядок THREEEIGHTY TEAM, без імені
   hello-threeeighty.html       ← загальна скринька hello@threeeighty.eu (без імені)
   vova-bryhynets.html          ← готовий підпис: VOVA BRYHYNETS, CEO
   dima-birchenko.html          ← готовий підпис: DIMA BIRCHENKO, CFO
@@ -18,13 +19,16 @@ public/email/
 
 | Файл | Хто | Що всередині |
 |---|---|---|
+| `team.html` | команда | THREEEIGHTY TEAM · hello@threeeighty.eu · Breda, Netherlands |
 | `hello-threeeighty.html` | загальна скринька | hello@threeeighty.eu · threeeighty.eu · Breda, Netherlands |
 | `vova-bryhynets.html` | VOVA BRYHYNETS | CEO · vb@threeeighty.eu · +31 6 4731 4115 · Breda, Netherlands |
 | `dima-birchenko.html` | DIMA BIRCHENKO | CFO · db@threeeighty.eu · +385 97 611 6162 · Split, Croatia |
 
-Підпис для **hello@** навмисно без імені та без особистого телефона: це спільна
-скринька, лист із неї може писати будь-хто з команди, тож підпис має читатися
-як «від компанії», а не від конкретної людини.
+Підписи **`team.html`** і **`hello-threeeighty.html`** навмисно без імені та без
+особистого телефона: лист зі спільної скриньки може писати будь-хто з команди,
+тож підпис має читатися як «від компанії», а не від конкретної людини. Різниця між
+ними лише одна — `team.html` має помітний рядок **THREEEIGHTY TEAM**, а
+`hello-threeeighty.html` починається одразу з адреси.
 
 Місто в підписі відповідає країні номера телефона: у Вови `+31` (Нідерланди,
 головний офіс у Бреді), у Діми `+385` (Хорватія, Спліт). Рядок локації в обох
