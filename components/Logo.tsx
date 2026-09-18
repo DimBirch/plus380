@@ -30,7 +30,12 @@ export default function Logo({
         THR<span className="text-red-500">EEE</span>IGHTY
       </span>
       {showTagline && (
-        <span className="mt-1.5 font-mono text-[0.6rem] font-medium uppercase tracking-[0.35em] text-bone-400">
+        // `text-center` centres the tagline under the wider THREEEIGHTY wordmark (the
+        // flex column stretches both children to the wordmark's width, so the tagline
+        // was previously flush left). `pl` mirrors the trailing `tracking` gap, which
+        // would otherwise push the visible glyphs ~2px left of true centre — keep the
+        // two values equal if the tracking changes.
+        <span className="mt-1.5 pl-[0.35em] text-center font-mono text-[0.6rem] font-medium uppercase tracking-[0.35em] text-bone-400">
           Epic Event Experience
         </span>
       )}

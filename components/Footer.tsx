@@ -15,7 +15,7 @@ export default function Footer({ dict }: { dict: Dictionary }) {
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="mailto:hello@rel1ve.eu"
+                href="mailto:hello@threeeighty.eu"
                 aria-label="Email"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
               >
@@ -56,10 +56,10 @@ export default function Footer({ dict }: { dict: Dictionary }) {
             <div>
               <p className="eyebrow mb-4">{dict.contact.emailLabel}</p>
               <a
-                href="mailto:hello@rel1ve.eu"
+                href="mailto:hello@threeeighty.eu"
                 className="font-body text-sm text-bone-400 hover:text-bone-50"
               >
-                hello@rel1ve.eu
+                hello@threeeighty.eu
               </a>
               <p className="mt-3 font-body text-sm text-bone-400">{dict.contact.locationHq}</p>
               <p className="mt-1 font-display text-sm font-semibold text-gradient">

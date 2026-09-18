@@ -17,9 +17,9 @@ export default function ContactSection({ dict }: { dict: Dictionary }) {
 
         <Reveal delay={0.1}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="mailto:hello@rel1ve.eu" className="btn-primary">
+            <a href="mailto:hello@threeeighty.eu" className="btn-primary">
               <Mail size={15} />
-              hello@rel1ve.eu
+              hello@threeeighty.eu
               <ArrowUpRight size={14} />
             </a>
           </div>

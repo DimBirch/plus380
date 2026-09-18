@@ -27,7 +27,7 @@ there is a single canonical address.
 | Vercel project | org `team_HwBqI41amOVdLvjLT6EU4kvC`, project `plus380` (id `prj_C1lziMNiM4QsrbdoTf3mw5DDMCOD`) — see `.vercel/project.json` |
 | Supabase project | https://qekrcjzdfhxlkgkvztdl.supabase.co |
 | Admin panel | https://threeeighty.eu/admin/login — **not linked from any public page on purpose** (user asked for it hidden). Login is an email/password the user created directly in Supabase Authentication — the agent does not have it. |
-| Contact email shown on site | hello@rel1ve.eu |
+| Contact email shown on site | hello@threeeighty.eu |
 
 ## 3. Tech stack
 
