@@ -16,8 +16,12 @@ public/email/
 
 | Файл | Хто | Що всередині |
 |---|---|---|
-| `vova-bryhynets.html` | VOVA BRYHYNETS | CEO · vb@threeeighty.eu · +31 6 4731 4115 |
-| `dima-birchenko.html` | DIMA BIRCHENKO | CFO · db@threeeighty.eu · +385 97 611 6162 |
+| `vova-bryhynets.html` | VOVA BRYHYNETS | CEO · vb@threeeighty.eu · +31 6 4731 4115 · Breda, Netherlands |
+| `dima-birchenko.html` | DIMA BIRCHENKO | CFO · db@threeeighty.eu · +385 97 611 6162 · Split, Croatia |
+
+Місто в підписі відповідає країні номера телефона: у Вови `+31` (Нідерланди,
+головний офіс у Бреді), у Діми `+385` (Хорватія, Спліт). Рядок локації в обох
+закінчується на `→ Worldwide`, бо агенція працює по всьому світу.
 
 **Подвійний клік** по файлу відкриває його в браузері — далі виділити, скопіювати,
 вставити (кроки в розділі 1). Заглушок у цих файлах немає, копіювати можна одразу.
