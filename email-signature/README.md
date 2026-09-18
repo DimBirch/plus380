@@ -4,9 +4,11 @@
 
 ```
 email-signature/
+  hello-threeeighty.html       ← загальна скринька hello@threeeighty.eu (без імені)
   vova-bryhynets.html          ← готовий підпис: VOVA BRYHYNETS, CEO
   dima-birchenko.html          ← готовий підпис: DIMA BIRCHENKO, CFO
   threeeighty-signature.html   ← порожній шаблон із заглушками (для нових людей)
+  _backup-relive-signature.html ← старий підпис «RE:LIVE» зі скриньки hello@
   README.md                    ← ця інструкція
 public/email/
   threeeighty-logo.png         ← картинка логотипа, яку підписи завантажують
@@ -16,8 +18,13 @@ public/email/
 
 | Файл | Хто | Що всередині |
 |---|---|---|
+| `hello-threeeighty.html` | загальна скринька | hello@threeeighty.eu · threeeighty.eu · Breda, Netherlands |
 | `vova-bryhynets.html` | VOVA BRYHYNETS | CEO · vb@threeeighty.eu · +31 6 4731 4115 · Breda, Netherlands |
 | `dima-birchenko.html` | DIMA BIRCHENKO | CFO · db@threeeighty.eu · +385 97 611 6162 · Split, Croatia |
+
+Підпис для **hello@** навмисно без імені та без особистого телефона: це спільна
+скринька, лист із неї може писати будь-хто з команди, тож підпис має читатися
+як «від компанії», а не від конкретної людини.
 
 Місто в підписі відповідає країні номера телефона: у Вови `+31` (Нідерланди,
 головний офіс у Бреді), у Діми `+385` (Хорватія, Спліт). Рядок локації в обох
