@@ -9,3 +9,6 @@ next-env.d.ts
 .env*
 .vercel-global
 .npm-cache
+
+# scratch dir for email signature rendering
+.email-assets

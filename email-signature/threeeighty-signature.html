@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>THREEEIGHTY — email signature</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 32px;
+        background: #f5f5f7;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .hint {
+        max-width: 520px;
+        margin: 0 0 24px;
+        padding: 14px 16px;
+        border-left: 3px solid #e31b23;
+        background: #ffffff;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #4c4e5a;
+      }
+      .hint strong {
+        color: #0c0c10;
+      }
+      .stage {
+        background: #ffffff;
+        padding: 24px;
+        max-width: 520px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hint">
+      <strong>Це прев'ю підпису.</strong> Щоб поставити його в Gmail, виділіть усе
+      всередині білої картки нижче (від логотипа до останнього рядка), скопіюйте та
+      вставте у налаштуваннях підпису. Деталі — у <code>email-signature/README.md</code>.
+      Не копіюйте цю підказку.
+    </div>
+
+    <div class="stage">
+      <!-- ==================== ПОЧАТОК ПІДПИСУ ==================== -->
+      <table
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+        role="presentation"
+        style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#0c0c10;"
+      >
+        <!-- Logo lockup (2x asset, shown at 210px) -->
+        <tr>
+          <td style="padding:0 0 16px 0;">
+            <img
+              src="https://threeeighty.eu/email/threeeighty-logo.png"
+              width="210"
+              height="64"
+              alt="THREEEIGHTY — Epic Event Experience"
+              style="display:block;width:210px;height:64px;border:0;outline:none;text-decoration:none;"
+            />
+          </td>
+        </tr>
+
+        <!-- Red accent rule -->
+        <tr>
+          <td style="padding:0 0 14px 0;">
+            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+              <tr>
+                <td
+                  width="44"
+                  height="3"
+                  style="width:44px;height:3px;background-color:#e31b23;line-height:3px;font-size:0;"
+                >
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Name -->
+        <tr>
+          <td style="padding:0 0 3px 0;font-size:15px;line-height:20px;font-weight:bold;color:#0c0c10;">
+            [YOUR NAME]
+          </td>
+        </tr>
+
+        <!-- Role -->
+        <tr>
+          <td style="padding:0 0 14px 0;font-size:11px;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;color:#6c6e7c;">
+            [YOUR ROLE] · THREEEIGHTY
+          </td>
+        </tr>
+
+        <!-- Email and phone -->
+        <tr>
+          <td style="padding:0 0 5px 0;font-size:13px;line-height:19px;color:#0c0c10;">
+            <a
+              href="mailto:hello@threeeighty.eu"
+              style="color:#0c0c10;text-decoration:none;"
+              >hello@threeeighty.eu</a
+            >
+            <span style="color:#c9c9cf;">&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+            <a href="tel:[+COUNTRYCODE PHONE]" style="color:#0c0c10;text-decoration:none;"
+              >[PHONE NUMBER]</a
+            >
+          </td>
+        </tr>
+
+        <!-- Website and location -->
+        <tr>
+          <td style="padding:0;font-size:13px;line-height:19px;">
+            <a
+              href="https://threeeighty.eu"
+              style="color:#e31b23;font-weight:bold;text-decoration:none;"
+              >threeeighty.eu</a
+            >
+            <span style="color:#c9c9cf;">&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+            <span style="color:#6c6e7c;">Breda, Netherlands → Worldwide</span>
+          </td>
+        </tr>
+
+        <!--
+          OPTIONAL: social links. Fill in the real URLs and delete this
+          comment wrapper to use them. Keep the row above as-is if unused.
+
+        <tr>
+          <td style="padding:10px 0 0 0;font-size:12px;line-height:18px;color:#6c6e7c;">
+            <a href="https://instagram.com/ИМЯ_АКАУНТА" style="color:#6c6e7c;text-decoration:none;">Instagram</a>
+            <span style="color:#c9c9cf;">&nbsp;·&nbsp;</span>
+            <a href="https://t.me/ИМЯ_АКАУНТА" style="color:#6c6e7c;text-decoration:none;">Telegram</a>
+          </td>
+        </tr>
+        -->
+      </table>
+      <!-- ==================== КІНЕЦЬ ПІДПИСУ ==================== -->
+    </div>
+  </body>
+</html>
