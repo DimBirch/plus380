@@ -26,7 +26,7 @@ there is a single canonical address.
 | Legacy URL | https://plus380.vercel.app — **308-redirects to `threeeighty.eu`** (path preserved), set on the domain in Vercel |
 | Vercel project | org `team_HwBqI41amOVdLvjLT6EU4kvC`, project `plus380` (id `prj_C1lziMNiM4QsrbdoTf3mw5DDMCOD`) — see `.vercel/project.json` |
 | Supabase project | https://qekrcjzdfhxlkgkvztdl.supabase.co |
-| Admin panel | https://threeeighty.eu/admin/login — **not linked from any public page on purpose** (user asked for it hidden). Login is an email/password the owner created directly in Supabase Authentication — the agent does not have it (and cannot read it: Supabase stores only a hash). Password recovery: `/admin/forgot-password` → emailed link → `/admin/reset-password`. See §5 for the Supabase setting that makes the email link work. |
+| Admin panel | https://threeeighty.eu/admin/login — **not linked from any public page on purpose** (user asked for it hidden). The account is `hello@threeeighty.eu` (the company address, already public on the site); **the password is not recorded anywhere and cannot be read back** — Supabase stores only a hash. On 2026-09-22 the project turned out to have **zero auth users**, so nobody could sign in at all; an account was created via Authentication → Users → Add user (with *Auto confirm user* on) and signing in was then verified end to end. Password recovery: `/admin/forgot-password` → emailed link → `/admin/reset-password`. See §5 for the Supabase setting that makes the email link work. |
 | Contact email shown on site | hello@threeeighty.eu |
 
 ## 3. Tech stack
