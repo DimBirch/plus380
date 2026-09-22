@@ -26,7 +26,7 @@ there is a single canonical address.
 | Legacy URL | https://plus380.vercel.app — **308-redirects to `threeeighty.eu`** (path preserved), set on the domain in Vercel |
 | Vercel project | org `team_HwBqI41amOVdLvjLT6EU4kvC`, project `plus380` (id `prj_C1lziMNiM4QsrbdoTf3mw5DDMCOD`) — see `.vercel/project.json` |
 | Supabase project | https://qekrcjzdfhxlkgkvztdl.supabase.co |
-| Admin panel | https://threeeighty.eu/admin/login — **not linked from any public page on purpose** (user asked for it hidden). Login is an email/password the user created directly in Supabase Authentication — the agent does not have it. |
+| Admin panel | https://threeeighty.eu/admin/login — **not linked from any public page on purpose** (user asked for it hidden). Login is an email/password the owner created directly in Supabase Authentication — the agent does not have it (and cannot read it: Supabase stores only a hash). Password recovery: `/admin/forgot-password` → emailed link → `/admin/reset-password`. See §5 for the Supabase setting that makes the email link work. |
 | Contact email shown on site | hello@threeeighty.eu |
 
 ## 3. Tech stack
@@ -63,7 +63,12 @@ there is a single canonical address.
   real events exist yet, see below) plus updating `lib/types.ts` and every place that
   reads `event.title_en`/`event.description_en`.
 - Admin panel (`app/admin/*`) lets the client log in and add/edit/delete events with image upload straight to Supabase Storage — no code changes needed for routine content updates.
-- **No real events exist yet** — the client hasn't added any through the admin panel. `lib/data/sample-events.ts` provides fallback demo content only when Supabase env vars are absent (local preview before Supabase was wired up); it's dead code now that Supabase is connected, safe to delete later if you want to tidy up.
+- **Password recovery** was added 2026-09-22 because the owner had lost the admin password and there was no way back in: `/admin/forgot-password` (enter the account email → Supabase sends a recovery link) and `/admin/reset-password` (exchanges the link's `?code=` for a session, then sets the new password). Both are listed in `publicAdminRoutes` in `middleware.ts` — they have to be reachable without a session, otherwise the redirect-to-login loop locks out exactly the person who needs them. Sign-in page links to it.
+  - ⚠️ **This needs one Supabase setting to actually deliver mail:** Authentication → URL Configuration → **Redirect URLs** must include `https://threeeighty.eu/admin/reset-password` (plus `http://localhost:3000/admin/reset-password` for dev). Without it Supabase silently falls back to the project's Site URL and the emailed link lands on the wrong page.
+  - The forgot-password page deliberately shows the same "email sent" confirmation for unknown addresses — Supabase does not error on them either, and reporting the difference would turn the page into a way to probe which addresses have accounts.
+  - `reset-password` checks for an existing session *before* calling `exchangeCodeForSession`, because `createBrowserClient` has `detectSessionInUrl` on and may have exchanged the code already — exchanging it twice fails.
+- **The `events` table is no longer empty** — 15 real events are in it (the newest from April 2024, so the public "Upcoming" list is currently empty and everything shows under "Past"). The old note here claiming "no real events exist yet" was stale; `lib/data/sample-events.ts` is still dead code, safe to delete if you want to tidy up.
+  - Worth knowing: `event_date` is what decides Upcoming vs Past, so the site will keep looking empty under "Upcoming" until an event with a future date is added.
 
 ## 6. Environment variables
 

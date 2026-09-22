@@ -117,5 +117,20 @@ export interface Dictionary {
     noEvents: string;
     saved: string;
     uploading: string;
+    forgotPassword: string;
+    forgotTitle: string;
+    forgotSubtitle: string;
+    sendResetLink: string;
+    sending: string;
+    forgotSent: string;
+    backToLogin: string;
+    resetTitle: string;
+    resetSubtitle: string;
+    newPassword: string;
+    confirmPassword: string;
+    resetSubmit: string;
+    resetMismatch: string;
+    resetDone: string;
+    resetLinkInvalid: string;
   };
 }

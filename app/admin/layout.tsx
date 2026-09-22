@@ -19,7 +19,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </span>
           </Link>
           <Link
-            href="/uk"
+            href="/"
             target="_blank"
             className="font-mono text-xs uppercase tracking-widest text-bone-500 hover:text-bone-300"
           >

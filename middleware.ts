@@ -35,7 +35,12 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const { pathname } = request.nextUrl;
-  const isAdminRoute = pathname.startsWith('/admin') && pathname !== '/admin/login';
+
+  // Reachable without a session: sign-in itself, plus the password-recovery pair.
+  // Those two have to be public — someone locked out of the panel cannot be
+  // asked to sign in before they can reset their password.
+  const publicAdminRoutes = ['/admin/login', '/admin/forgot-password', '/admin/reset-password'];
+  const isAdminRoute = pathname.startsWith('/admin') && !publicAdminRoutes.includes(pathname);
 
   if (isAdminRoute && !user) {
     const loginUrl = new URL('/admin/login', request.url);

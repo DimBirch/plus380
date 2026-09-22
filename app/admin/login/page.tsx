@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Lock } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import uk from '@/lib/i18n/dictionaries/uk';
@@ -84,6 +85,13 @@ export default function AdminLoginPage() {
             {loading ? '…' : dict.signIn}
           </button>
         </form>
+
+        <Link
+          href="/admin/forgot-password"
+          className="mt-5 inline-block font-body text-xs text-bone-500 transition-colors hover:text-bone-50"
+        >
+          {dict.forgotPassword}
+        </Link>
       </div>
     </div>
   );
