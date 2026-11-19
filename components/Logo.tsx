@@ -34,7 +34,7 @@ export default function Logo({
         Expressed in em, so it holds at every `size`.
       */}
       <span className={`mr-[0.025em] font-logo leading-none tracking-tight text-bone-50 ${SIZES[size]}`}>
-        THR<span className="text-red-500">EEE</span>IGHTY
+        THR<span className="text-lime-500">EEE</span>IGHTY
       </span>
       {showTagline && (
         // The tagline is stretched so it spans the wordmark exactly, from the "T" of

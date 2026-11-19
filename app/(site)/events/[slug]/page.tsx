@@ -43,7 +43,7 @@ export default async function EventDetailPage({ params }: { params: { slug: stri
       <div className="mx-auto max-w-5xl px-6 sm:px-8">
         <Link
           href="/events"
-          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-bone-400 hover:text-red-400"
+          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-bone-400 hover:text-lime-400"
         >
           <ArrowLeft size={14} />
           {dict.gallery.backToEvents}
@@ -52,12 +52,12 @@ export default async function EventDetailPage({ params }: { params: { slug: stri
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <span
             className={`rounded-full px-3 py-1 font-mono text-[0.65rem] font-semibold uppercase tracking-widest ${
-              isPast ? 'bg-white/10 text-bone-300' : 'bg-red-500/20 text-red-300 ring-1 ring-inset ring-red-400/40'
+              isPast ? 'bg-white/10 text-bone-300' : 'bg-lime-500/20 text-lime-300 ring-1 ring-inset ring-lime-400/40'
             }`}
           >
             {isPast ? dict.gallery.past : dict.gallery.upcoming}
           </span>
-          <span className="font-mono text-[0.65rem] uppercase tracking-widest text-red-400">
+          <span className="font-mono text-[0.65rem] uppercase tracking-widest text-lime-400">
             {dict.categories[event.category]}
           </span>
         </div>
@@ -100,7 +100,7 @@ export default async function EventDetailPage({ params }: { params: { slug: stri
           <aside className="glass-panel h-max space-y-6 p-6">
             {infoItems.map((item) => (
               <div key={item.label} className="flex items-start gap-3">
-                <item.icon size={16} className="mt-0.5 shrink-0 text-red-400" />
+                <item.icon size={16} className="mt-0.5 shrink-0 text-lime-400" />
                 <div>
                   <div className="font-mono text-[0.65rem] uppercase tracking-widest text-bone-500">
                     {item.label}

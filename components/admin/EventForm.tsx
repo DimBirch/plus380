@@ -137,13 +137,13 @@ export default function EventForm({ event }: { event?: EventRecord }) {
   }
 
   const inputClass =
-    'w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-2.5 font-body text-sm text-bone-50 outline-none focus:border-red-500/60';
+    'w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-2.5 font-body text-sm text-bone-50 outline-none focus:border-lime-500/60';
   const labelClass = 'mb-1.5 block font-mono text-[0.65rem] uppercase tracking-widest text-bone-500';
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-8">
       {error && (
-        <p className="rounded-lg border border-red-500/40 bg-red-500/10 p-3 font-body text-xs text-red-400">
+        <p className="rounded-lg border border-lime-500/40 bg-lime-500/10 p-3 font-body text-xs text-lime-400">
           {error}
         </p>
       )}
@@ -255,7 +255,7 @@ export default function EventForm({ event }: { event?: EventRecord }) {
           type="checkbox"
           checked={featured}
           onChange={(e) => setFeatured(e.target.checked)}
-          className="h-4 w-4 rounded border-white/20 bg-white/5 accent-red-500"
+          className="h-4 w-4 rounded border-white/20 bg-white/5 accent-lime-500"
         />
         {dict.fields.featured}
       </label>
@@ -275,7 +275,7 @@ export default function EventForm({ event }: { event?: EventRecord }) {
               </button>
             </div>
           )}
-          <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-white/20 px-4 py-3 font-mono text-xs uppercase tracking-widest text-bone-400 hover:border-red-500/50 hover:text-red-300">
+          <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-white/20 px-4 py-3 font-mono text-xs uppercase tracking-widest text-bone-400 hover:border-lime-500/50 hover:text-lime-300">
             {uploadingCover ? <Loader2 size={14} className="animate-spin" /> : <UploadCloud size={14} />}
             {uploadingCover ? dict.uploading : 'Завантажити'}
             <input type="file" accept="image/*" onChange={handleCoverChange} className="hidden" />
@@ -298,7 +298,7 @@ export default function EventForm({ event }: { event?: EventRecord }) {
               </button>
             </div>
           ))}
-          <label className="flex h-20 w-20 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-white/20 font-mono text-[0.6rem] uppercase tracking-widest text-bone-400 hover:border-red-500/50 hover:text-red-300">
+          <label className="flex h-20 w-20 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-white/20 font-mono text-[0.6rem] uppercase tracking-widest text-bone-400 hover:border-lime-500/50 hover:text-lime-300">
             {uploadingGallery ? (
               <Loader2 size={16} className="animate-spin" />
             ) : (

@@ -38,7 +38,7 @@ export default function AdminForgotPasswordPage() {
   return (
     <div className="flex min-h-[80vh] items-center justify-center">
       <div className="glass-panel w-full max-w-sm p-8">
-        <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-full bg-red-500/15 text-red-400">
+        <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-full bg-lime-500/15 text-lime-400">
           {sent ? <MailCheck size={18} /> : <KeyRound size={18} />}
         </div>
 
@@ -48,7 +48,7 @@ export default function AdminForgotPasswordPage() {
         </p>
 
         {!configured && (
-          <p className="mt-5 rounded-lg border border-red-500/40 bg-red-500/10 p-3 font-body text-xs leading-relaxed text-red-400">
+          <p className="mt-5 rounded-lg border border-lime-500/40 bg-lime-500/10 p-3 font-body text-xs leading-relaxed text-lime-400">
             Supabase ще не підключено (немає NEXT_PUBLIC_SUPABASE_URL /
             NEXT_PUBLIC_SUPABASE_ANON_KEY). Відновлення буде недоступне, доки не заповните
             .env.local — дивіться README.
@@ -67,7 +67,7 @@ export default function AdminForgotPasswordPage() {
                 autoFocus
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-2.5 font-body text-sm text-bone-50 outline-none focus:border-red-500/60"
+                className="w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-2.5 font-body text-sm text-bone-50 outline-none focus:border-lime-500/60"
                 placeholder="you@threeeighty.com"
               />
             </div>

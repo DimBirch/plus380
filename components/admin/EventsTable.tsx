@@ -62,10 +62,10 @@ export default function EventsTable({ initialEvents }: { initialEvents: EventRec
                     <h3 className="font-display text-sm font-semibold text-bone-50">
                       {event.title_uk}
                     </h3>
-                    {event.featured && <Star size={13} className="fill-red-400 text-red-400" />}
+                    {event.featured && <Star size={13} className="fill-lime-400 text-lime-400" />}
                   </div>
                   <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[0.65rem] uppercase tracking-widest text-bone-500">
-                    <span className={isPast ? 'text-bone-500' : 'text-red-400'}>
+                    <span className={isPast ? 'text-bone-500' : 'text-lime-400'}>
                       {isPast ? 'Минула' : 'Майбутня'}
                     </span>
                     <span>·</span>
@@ -79,14 +79,14 @@ export default function EventsTable({ initialEvents }: { initialEvents: EventRec
               <div className="flex items-center gap-2 self-end sm:self-auto">
                 <Link
                   href={`/admin/events/${event.id}/edit`}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-red-400/50 hover:text-red-300"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-lime-400/50 hover:text-lime-300"
                 >
                   <Pencil size={14} />
                 </Link>
                 <button
                   onClick={() => handleDelete(event.id)}
                   disabled={deletingId === event.id}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-red-500/50 hover:text-red-400 disabled:opacity-40"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-lime-500/50 hover:text-lime-400 disabled:opacity-40"
                 >
                   <Trash2 size={14} />
                 </button>

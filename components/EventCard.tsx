@@ -23,7 +23,7 @@ export default function EventCard({
   return (
     <Link
       href={`/events/${event.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-800 transition-all duration-300 hover:-translate-y-1 hover:border-red-500/50 hover:shadow-[0_0_40px_-12px_rgba(227,27,35,0.65)]"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-800 transition-all duration-300 hover:-translate-y-1 hover:border-lime-500/50 hover:shadow-[0_0_40px_-12px_rgba(200,240,46,0.65)]"
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-700">
         {event.cover_image_url ? (
@@ -47,7 +47,7 @@ export default function EventCard({
             className={`rounded-full px-3 py-1 font-mono text-[0.65rem] font-semibold uppercase tracking-widest backdrop-blur-md ${
               isPast
                 ? 'bg-white/10 text-bone-300'
-                : 'bg-red-500/20 text-red-300 ring-1 ring-inset ring-red-400/40'
+                : 'bg-lime-500/20 text-lime-300 ring-1 ring-inset ring-lime-400/40'
             }`}
           >
             {isPast ? dict.gallery.past : dict.gallery.upcoming}
@@ -60,7 +60,7 @@ export default function EventCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-5">
-        <span className="font-mono text-[0.65rem] font-medium uppercase tracking-[0.2em] text-red-400">
+        <span className="font-mono text-[0.65rem] font-medium uppercase tracking-[0.2em] text-lime-400">
           {dict.categories[event.category]} · {dateStr}
         </span>
         <h3 className="font-display text-lg font-semibold leading-tight text-bone-50">

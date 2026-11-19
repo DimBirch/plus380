@@ -8,12 +8,15 @@ export default function Hero({ dict }: { dict: Dictionary }) {
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink-950 pt-24">
       {/* Background layers */}
       <div className="absolute inset-0 bg-mesh-glow" />
+      {/* Poster-style stage lasers: lime beams fanning up from the floor */}
+      <div aria-hidden="true" className="laser-fan pointer-events-none absolute inset-x-0 bottom-0 h-[78%]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-lime-500/25 to-transparent" />
       <div className="absolute -right-32 top-1/3 h-[36rem] w-[36rem] rounded-full border border-white/[0.06]" />
-      <div className="absolute -right-32 top-1/3 h-[26rem] w-[26rem] translate-x-10 translate-y-10 rounded-full border border-red-500/20 animate-spin-slow" />
+      <div className="absolute -right-32 top-1/3 h-[26rem] w-[26rem] translate-x-10 translate-y-10 rounded-full border border-lime-500/20 animate-spin-slow" />
       <DancingFigure
         className="absolute -right-6 bottom-0 h-[85%] sm:right-8 lg:right-20"
-        color="#e31b23"
-        opacity={0.14}
+        color="#c8f02e"
+        opacity={0.1}
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8">
@@ -28,7 +31,7 @@ export default function Hero({ dict }: { dict: Dictionary }) {
             <span className="text-gradient block">{dict.hero.titleLine2}</span>
           </h1>
 
-          <p className="mt-5 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-red-500 sm:text-sm">
+          <p className="mt-5 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-lime-500 sm:text-sm">
             {dict.footer.credo}
           </p>
 

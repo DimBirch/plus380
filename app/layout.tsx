@@ -46,18 +46,18 @@ export const metadata: Metadata = {
     icon: [
       {
         url:
-          'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" rx="18" fill="%23e31b23"/%3E%3Ctext x="50" y="65" font-size="38" font-family="Arial, sans-serif" font-weight="900" fill="%23ffffff" text-anchor="middle"%3E380%3C/text%3E%3C/svg%3E',
+          'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" rx="18" fill="%23c8f02e"/%3E%3Ctext x="50" y="65" font-size="38" font-family="Arial, sans-serif" font-weight="900" fill="%230a0d06" text-anchor="middle"%3E380%3C/text%3E%3C/svg%3E',
       },
     ],
   },
 };
 
-// Runs before paint so a returning dark-mode visitor never sees a light
-// flash. The site defaults to light (no attribute needed for that case).
+// Runs before paint so a returning light-mode visitor never sees a dark
+// flash. The site defaults to dark (no attribute needed for that case).
 const themeInitScript = `
   try {
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
     }
   } catch (e) {}
 `;

@@ -96,7 +96,7 @@ export default function AdminResetPasswordPage() {
   return (
     <div className="flex min-h-[80vh] items-center justify-center">
       <div className="glass-panel w-full max-w-sm p-8">
-        <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-full bg-red-500/15 text-red-400">
+        <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-full bg-lime-500/15 text-lime-400">
           {done ? <ShieldCheck size={18} /> : hasRecoverySession ? <KeyRound size={18} /> : <TriangleAlert size={18} />}
         </div>
 
@@ -135,7 +135,7 @@ export default function AdminResetPasswordPage() {
                   autoFocus
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-2.5 font-body text-sm text-bone-50 outline-none focus:border-red-500/60"
+                  className="w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-2.5 font-body text-sm text-bone-50 outline-none focus:border-lime-500/60"
                   placeholder="••••••••"
                 />
               </div>
@@ -150,12 +150,12 @@ export default function AdminResetPasswordPage() {
                   minLength={6}
                   value={confirm}
                   onChange={(e) => setConfirm(e.target.value)}
-                  className="w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-2.5 font-body text-sm text-bone-50 outline-none focus:border-red-500/60"
+                  className="w-full rounded-lg border border-white/15 bg-white/[0.03] px-4 py-2.5 font-body text-sm text-bone-50 outline-none focus:border-lime-500/60"
                   placeholder="••••••••"
                 />
               </div>
 
-              {error && <p className="font-body text-xs text-red-400">{error}</p>}
+              {error && <p className="font-body text-xs text-lime-400">{error}</p>}
 
               <button type="submit" disabled={loading} className="btn-primary mt-2 disabled:opacity-40">
                 {loading ? '…' : dict.resetSubmit}

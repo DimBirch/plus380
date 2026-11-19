@@ -8,35 +8,39 @@
    components never need a separate dark variant — the same class just
    repaints. */
 :root {
-  color-scheme: light;
-  --ink-950: 252 252 253;
-  --ink-900: 245 245 247;
-  --ink-800: 237 238 241;
-  --ink-700: 226 227 232;
-  --ink-600: 211 212 219;
-  --ink-500: 190 192 201;
-  --bone-50: 12 12 16;
-  --bone-100: 32 33 39;
-  --bone-300: 76 78 90;
-  --bone-400: 108 110 124;
-  --bone-500: 138 140 154;
-  --overlay-rgb: 10 10 16;
+  color-scheme: dark;
+  --ink-950: 4 5 4;
+  --ink-900: 9 11 8;
+  --ink-800: 14 17 12;
+  --ink-700: 21 25 17;
+  --ink-600: 29 34 22;
+  --ink-500: 42 48 31;
+  --bone-50: 247 249 242;
+  --bone-100: 236 240 226;
+  --bone-300: 196 202 183;
+  --bone-400: 154 161 138;
+  --bone-500: 113 121 98;
+  --overlay-rgb: 255 255 255;
+  --lime-300: 228 249 138;
+  --lime-400: 214 245 90;
 }
 
-:root[data-theme='dark'] {
-  color-scheme: dark;
-  --ink-950: 5 5 8;
-  --ink-900: 10 10 16;
-  --ink-800: 15 15 24;
-  --ink-700: 22 22 31;
-  --ink-600: 30 30 42;
-  --ink-500: 42 42 56;
-  --bone-50: 247 247 249;
-  --bone-100: 236 238 242;
-  --bone-300: 196 198 209;
-  --bone-400: 154 156 170;
-  --bone-500: 113 115 138;
-  --overlay-rgb: 255 255 255;
+:root[data-theme='light'] {
+  color-scheme: light;
+  --ink-950: 250 251 246;
+  --ink-900: 243 245 236;
+  --ink-800: 235 238 225;
+  --ink-700: 224 228 211;
+  --ink-600: 209 214 192;
+  --ink-500: 188 194 168;
+  --bone-50: 11 13 8;
+  --bone-100: 30 34 22;
+  --bone-300: 70 76 54;
+  --bone-400: 100 108 80;
+  --bone-500: 132 140 112;
+  --overlay-rgb: 10 14 6;
+  --lime-300: 94 120 8;
+  --lime-400: 78 102 6;
 }
 
 html {
@@ -49,8 +53,8 @@ body {
 }
 
 ::selection {
-  background: #e31b23;
-  color: #ffffff;
+  background: #c8f02e;
+  color: #0a0d06;
 }
 
 ::-webkit-scrollbar {
@@ -66,7 +70,7 @@ body {
   border: 2px solid rgb(var(--ink-950));
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e31b23;
+  background: #c8f02e;
 }
 
 /* Dancing figure — a real two-beat step: everything below shares the same
@@ -135,26 +139,43 @@ body {
   }
 
   .neon-border {
-    @apply border border-red-500/40 shadow-[0_0_0_1px_rgba(227,27,35,0.15),0_0_28px_-6px_rgba(227,27,35,0.55)];
+    @apply border border-lime-500/40 shadow-[0_0_0_1px_rgba(200,240,46,0.15),0_0_28px_-6px_rgba(200,240,46,0.55)];
   }
 
   .text-gradient {
-    @apply text-red-500;
+    @apply text-lime-500;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-red-500 px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#ffffff] transition-all duration-300 hover:bg-red-400 hover:shadow-[0_0_32px_-4px_rgba(227,27,35,0.8)];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-lime-500 px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#0a0d06] transition-all duration-300 hover:bg-lime-400 hover:shadow-[0_0_32px_-4px_rgba(200,240,46,0.8)];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.02] px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-bone-50 backdrop-blur-sm transition-all duration-300 hover:border-red-400/60 hover:text-red-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.02] px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-bone-50 backdrop-blur-sm transition-all duration-300 hover:border-lime-400/60 hover:text-lime-300;
   }
 
   .eyebrow {
-    @apply font-mono text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-red-400;
+    @apply font-mono text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-lime-400;
   }
 
   .section-heading {
     @apply font-display text-4xl font-medium leading-[1.05] tracking-tight text-bone-50 sm:text-5xl md:text-6xl;
   }
+}
+
+/* Stage lasers (Hero). Two mirrored fans of thin lime beams from the bottom. */
+.laser-fan {
+  background:
+    repeating-conic-gradient(from 270deg at 18% 100%, transparent 0deg 4deg, rgba(200,240,46,0.35) 4.4deg 4.9deg, transparent 5.3deg 9deg),
+    repeating-conic-gradient(from 270deg at 82% 100%, transparent 0deg 4deg, rgba(214,245,90,0.3) 4.4deg 4.9deg, transparent 5.3deg 9deg);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, rgba(0,0,0,0.6) 45%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 0%, rgba(0,0,0,0.6) 45%, transparent 100%);
+  mix-blend-mode: screen;
+  opacity: 0.8;
+  animation: laser-sway 9s ease-in-out infinite alternate;
+}
+:root[data-theme='light'] .laser-fan { opacity: 0.35; mix-blend-mode: multiply; }
+@keyframes laser-sway {
+  from { transform: translateX(-1.5%) scaleY(1); }
+  to { transform: translateX(1.5%) scaleY(1.06); }
 }

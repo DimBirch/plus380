@@ -17,21 +17,21 @@ export default function Footer({ dict }: { dict: Dictionary }) {
               <a
                 href="mailto:hello@threeeighty.eu"
                 aria-label="Email"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-lime-400/60 hover:text-lime-400"
               >
                 <Mail size={16} />
               </a>
               <a
                 href="#"
                 aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-lime-400/60 hover:text-lime-400"
               >
                 <Instagram size={16} />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-red-400/60 hover:text-red-400"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-bone-300 transition-colors hover:border-lime-400/60 hover:text-lime-400"
               >
                 <Facebook size={16} />
               </a>

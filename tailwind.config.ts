@@ -32,12 +32,13 @@ const config: Config = {
         // "faint overlay on the base surface" — flip it dark-on-light in
         // light mode instead of white-on-dark, via the same variable trick.
         white: 'rgb(var(--overlay-rgb) / <alpha-value>)',
-        red: {
-          300: '#ff9d9f',
-          400: '#ff4d51',
-          500: '#e31b23',
-          600: '#b3141a',
-          700: '#8a0f14',
+        lime: {
+          // 300/400 are text/border accents: bright lime on dark, olive on light (see globals.css)
+          300: 'rgb(var(--lime-300) / <alpha-value>)',
+          400: 'rgb(var(--lime-400) / <alpha-value>)',
+          500: '#c8f02e',
+          600: '#9cc21a',
+          700: '#6f8e10',
         },
       },
       fontFamily: {
@@ -48,7 +49,7 @@ const config: Config = {
       },
       backgroundImage: {
         'mesh-glow':
-          'radial-gradient(ellipse 85% 55% at 20% 0%, rgba(227,27,35,0.45), transparent 62%), radial-gradient(ellipse 65% 45% at 85% 15%, rgba(179,20,26,0.32), transparent 62%), radial-gradient(ellipse 55% 45% at 50% 100%, rgba(255,77,81,0.22), transparent 62%)',
+          'radial-gradient(ellipse 85% 55% at 20% 0%, rgba(200,240,46,0.45), transparent 62%), radial-gradient(ellipse 65% 45% at 85% 15%, rgba(150,190,20,0.32), transparent 62%), radial-gradient(ellipse 55% 45% at 50% 100%, rgba(214,245,90,0.22), transparent 62%)',
       },
       keyframes: {
         marquee: {

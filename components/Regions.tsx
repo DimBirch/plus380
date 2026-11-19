@@ -18,16 +18,16 @@ export default function Regions({ dict }: { dict: Dictionary }) {
               <div
                 className={`flex items-center gap-2.5 rounded-full border px-5 py-3 backdrop-blur-sm ${
                   r.note
-                    ? 'border-red-500/50 bg-red-500/10'
+                    ? 'border-lime-500/50 bg-lime-500/10'
                     : 'border-white/15 bg-white/[0.03]'
                 }`}
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
+                <span className="h-1.5 w-1.5 rounded-full bg-lime-400" />
                 <span className="font-display text-sm font-semibold text-bone-50 sm:text-base">
                   {r.name}
                 </span>
                 {r.note && (
-                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-red-300">
+                  <span className="font-mono text-[0.65rem] uppercase tracking-widest text-lime-300">
                     {r.note}
                   </span>
                 )}
