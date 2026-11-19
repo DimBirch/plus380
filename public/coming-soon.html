@@ -46,7 +46,7 @@ nav a:hover{color:var(--lime)}
   radial-gradient(35% 28% at 85% 10%,rgba(124,255,30,.12),transparent 70%),
   radial-gradient(60% 35% at 50% 100%,rgba(124,255,30,.22),transparent 70%)}
 .beams{position:absolute;left:50%;bottom:-40px;width:0;height:0}
-.beams i{position:absolute;bottom:0;left:0;width:3px;height:120vh;transform-origin:bottom center;background:linear-gradient(to top,var(--lime),rgba(124,255,30,0) 85%);box-shadow:var(--glow);opacity:.75;animation:sweep 1.1s ease-in-out infinite alternate}
+.beams i{position:absolute;bottom:0;left:0;width:3px;height:120vh;transform-origin:bottom center;background:linear-gradient(to top,var(--lime),rgba(124,255,30,0) 85%);box-shadow:var(--glow);opacity:.75;transform:rotate(var(--a)) translateX(var(--x))}
 .beams i.y{background:linear-gradient(to top,var(--volt),rgba(226,255,26,0) 80%)}
 @keyframes sweep{from{transform:rotate(var(--a)) translateX(var(--x))}to{transform:rotate(calc(var(--a) * .82)) translateX(var(--x))}}
 
@@ -146,12 +146,10 @@ footer{border-top:1px solid var(--rule);padding:56px 0 40px}
 
 <section class="hero" id="top">
   <canvas id="fx" aria-hidden="true"></canvas>
-  <div class="mono l"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s5"></span></div><div class="mono r"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s5"></span></div>
   <div class="vign"></div>
   <div class="crowdimg"></div>
 
   <div class="hero-in">
-        <h1 class="wordmark">THR<b>EEE</b>IGHTY</h1>
     <div class="kicker">NEXT SHOWS</div>
     <p class="big">Coming <span>soon</span></p>
     <p class="lead">International event agency. Tours, festivals and concerts on four continents — electronic music at the core. The next chapter is being built right now.</p>
@@ -283,7 +281,7 @@ footer{border-top:1px solid var(--rule);padding:56px 0 40px}
     var fg=x.createRadialGradient(ox,oy,0,ox,oy,W*.55);fg.addColorStop(0,'rgba(140,255,40,.35)');fg.addColorStop(.35,'rgba(60,200,20,.12)');fg.addColorStop(1,'rgba(0,0,0,0)');
     x.fillStyle=fg;x.fillRect(0,0,W,H);
     // beams
-    beams.forEach(function(b){var ox=W*b.sx,oy=H*.8,ang=(b.a+Math.sin(t*3.4+b.ph)*10)*Math.PI/180,L=Math.max(W,H)*1.2,
+    beams.forEach(function(b){var ox=W*b.sx,oy=H*.8,ang=(b.a+0)*Math.PI/180,L=Math.max(W,H)*1.2,
       ex=ox+Math.sin(ang)*L,ey=oy-Math.cos(ang)*L,px=Math.cos(ang),py=Math.sin(ang),sp=L*.02;
       var col=b.y?'226,255,26':'124,255,30';
       var g=x.createLinearGradient(ox,oy,ex,ey);g.addColorStop(0,'rgba('+col+',.26)');g.addColorStop(.5,'rgba('+col+',.05)');g.addColorStop(1,'rgba('+col+',0)');
